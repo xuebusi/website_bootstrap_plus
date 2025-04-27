@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业网站模板</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 自定义样式 */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x600') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 150px 0;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0d6efd;
+        }
+        .client-logo {
+            height: 60px;
+            filter: grayscale(100%);
+            transition: all 0.3s;
+        }
+        .client-logo:hover {
+            filter: grayscale(0%);
+        }
+        .floating-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        /* 添加一些动画效果 */
+        #chatWindow {
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        #chatWindow[style*="display: block"] {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .floating-widget .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            transition: all 0.2s ease;
+        }
+        
+        .floating-widget .btn:hover {
+            transform: scale(1.1);
+        }
+        
+        #backToTopButton {
+            display: none; /* 默认隐藏，滚动后显示 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 页眉通知条 Top Bar / Notification Bar -->
+    <div class="bg-primary text-white py-2">
+        <div class="container text-center">
+            <p class="mb-0">🎉 限时优惠：新用户注册即享8折优惠！ <a href="#" class="text-white fw-bold">立即注册</a></p>
+        </div>
+    </div>
+
+    <!-- 页面头部 Header -->
+    <header class="sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="#">
+                        <img src="https://placehold.co/150x50" alt="公司Logo" height="50">
+                    </a>
+                    
+                    <!-- 移动端菜单按钮 -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <!-- 导航栏 Navigation Bar -->
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.html">产品中心</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">解决方案</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">关于我们</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">客户案例</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">新闻动态</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系我们</a>
+                            </li>
+                        </ul>
+                        
+                        <!-- 搜索区域 Search Area -->
+                        <form class="d-flex me-3">
+                            <input class="form-control me-2" type="search" placeholder="搜索..." aria-label="Search">
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        
+                        <!-- 登录/注册模块 Authentication Area -->
+                        <div class="d-flex">
+                            <a href="#" class="btn btn-outline-primary me-2">登录</a>
+                            <a href="#" class="btn btn-primary">注册</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 Breadcrumbs (示例在子页面) -->
+    <nav aria-label="breadcrumb" class="bg-light py-3">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="#">首页</a></li>
+                <li class="breadcrumb-item"><a href="#">产品中心</a></li>
+                <li class="breadcrumb-item active" aria-current="page">产品详情</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- 横幅区域 Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">创新科技，引领未来</h1>
+            <p class="lead mb-5">我们致力于为企业提供最先进的数字化解决方案</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#" class="btn btn-primary btn-lg px-4">产品演示</a>
+                <a href="#" class="btn btn-outline-light btn-lg px-4">了解更多</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心功能介绍区 Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">我们的核心优势</h2>
+                <p class="text-muted">为您提供全方位的技术支持与服务</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>高效性能</h3>
+                        <p class="text-muted">我们的解决方案经过优化，能够处理高并发请求，确保系统稳定运行。</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>安全保障</h3>
+                        <p class="text-muted">多层安全防护机制，保护您的数据免受威胁，符合国际安全标准。</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>灵活定制</h3>
+                        <p class="text-muted">根据您的业务需求提供定制化解决方案，完美适配各种场景。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品/服务列表区 Products/Services Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">我们的产品</h2>
+                <p class="text-muted">满足您多样化的业务需求</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x300" class="card-img-top" alt="产品1">
+                        <div class="card-body">
+                            <h5 class="card-title">企业级解决方案</h5>
+                            <p class="card-text">专为大型企业设计的一站式数字化解决方案，助力企业转型升级。</p>
+                            <a href="#" class="btn btn-outline-primary">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x300" class="card-img-top" alt="产品2">
+                        <div class="card-body">
+                            <h5 class="card-title">中小企业套装</h5>
+                            <p class="card-text">经济实惠的标准化产品，满足中小企业基本数字化需求。</p>
+                            <a href="#" class="btn btn-outline-primary">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x300" class="card-img-top" alt="产品3">
+                        <div class="card-body">
+                            <h5 class="card-title">行业定制版</h5>
+                            <p class="card-text">针对特定行业的深度定制产品，解决行业痛点问题。</p>
+                            <a href="#" class="btn btn-outline-primary">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 行动召唤区 Call to Action (CTA) -->
+            <div class="text-center mt-5">
+                <h3 class="mb-4">寻找适合您的解决方案？</h3>
+                <a href="#" class="btn btn-primary btn-lg px-4">联系我们获取咨询</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司介绍区 About Us Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://placehold.co/600x400" alt="关于我们" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">关于我们</h2>
+                    <p>我们是一家成立于2010年的科技公司，专注于为企业提供数字化转型解决方案。经过十余年的发展，我们已经服务了超过1000家企业客户。</p>
+                    <p>我们的使命是"用技术驱动商业创新"，愿景是"成为企业数字化转型的首选合作伙伴"。</p>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary text-white rounded-circle p-3 me-3">
+                                    <i class="fas fa-users fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="mb-0">500+</h4>
+                                    <small class="text-muted">企业客户</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary text-white rounded-circle p-3 me-3">
+                                    <i class="fas fa-globe fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="mb-0">20+</h4>
+                                    <small class="text-muted">国家地区</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline-primary mt-3">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户案例区 Case Studies / Success Stories -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">客户案例</h2>
+                <p class="text-muted">我们与各行业领先企业合作</p>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x300" class="card-img-top" alt="案例1">
+                        <div class="card-body">
+                            <h5 class="card-title">某大型零售企业数字化转型</h5>
+                            <p class="card-text">帮助客户实现了线上线下全渠道融合，销售额提升35%。</p>
+                            <div class="d-flex align-items-center">
+                                <img src="https://placehold.co/40" class="rounded-circle me-2" alt="客户头像">
+                                <div>
+                                    <h6 class="mb-0">张经理</h6>
+                                    <small class="text-muted">某零售企业CIO</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x300" class="card-img-top" alt="案例2">
+                        <div class="card-body">
+                            <h5 class="card-title">制造业智能工厂建设</h5>
+                            <p class="card-text">实现生产流程自动化，生产效率提升50%，人力成本降低30%。</p>
+                            <div class="d-flex align-items-center">
+                                <img src="https://placehold.co/40" class="rounded-circle me-2" alt="客户头像">
+                                <div>
+                                    <h6 class="mb-0">李总监</h6>
+                                    <small class="text-muted">某制造企业生产总监</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x300" class="card-img-top" alt="案例3">
+                        <div class="card-body">
+                            <h5 class="card-title">金融机构风控系统升级</h5>
+                            <p class="card-text">构建智能风控体系，不良贷款率下降60%，审批效率提升3倍。</p>
+                            <div class="d-flex align-items-center">
+                                <img src="https://placehold.co/40" class="rounded-circle me-2" alt="客户头像">
+                                <div>
+                                    <h6 class="mb-0">王总</h6>
+                                    <small class="text-muted">某银行风控负责人</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 客户Logo墙 -->
+            <div class="row align-items-center justify-content-center g-4">
+                <div class="col-6 col-md-2 text-center">
+                    <img src="https://placehold.co/150x60" alt="客户Logo" class="img-fluid client-logo">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="https://placehold.co/150x60" alt="客户Logo" class="img-fluid client-logo">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="https://placehold.co/150x60" alt="客户Logo" class="img-fluid client-logo">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="https://placehold.co/150x60" alt="客户Logo" class="img-fluid client-logo">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="https://placehold.co/150x60" alt="客户Logo" class="img-fluid client-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻动态区 News/Blog Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">新闻动态</h2>
+                <p class="text-muted">了解最新公司动态和行业资讯</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x300" class="card-img-top" alt="新闻1">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted">2023-06-15</small>
+                                <small class="text-primary">公司新闻</small>
+                            </div>
+                            <h5 class="card-title">公司荣获"年度最佳科技创新奖"</h5>
+                            <p class="card-text">在2023年科技创新大会上，我司凭借领先的技术实力和创新解决方案获得行业认可。</p>
+                            <a href="#" class="btn btn-link ps-0">阅读更多 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x300" class="card-img-top" alt="新闻2">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted">2023-05-28</small>
+                                <small class="text-primary">行业资讯</small>
+                            </div>
+                            <h5 class="card-title">数字化转型趋势分析报告发布</h5>
+                            <p class="card-text">最新研究报告显示，2023年企业数字化转型投入将增长25%，云计算和AI成为主要驱动力。</p>
+                            <a href="#" class="btn btn-link ps-0">阅读更多 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x300" class="card-img-top" alt="新闻3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted">2023-05-10</small>
+                                <small class="text-primary">产品更新</small>
+                            </div>
+                            <h5 class="card-title">新一代企业级解决方案V3.0发布</h5>
+                            <p class="card-text">全新版本增加了智能分析模块和移动端适配功能，性能提升40%，操作更便捷。</p>
+                            <a href="#" class="btn btn-link ps-0">阅读更多 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary">查看更多新闻</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式区 Contact Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-4">联系我们</h2>
+                    <p class="mb-4">如果您有任何问题或需求，请随时与我们联系，我们的专业团队将为您提供支持。</p>
+                    
+                    <div class="mb-4">
+                        <div class="d-flex mb-3">
+                            <div class="me-3 text-primary">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">地址</h5>
+                                <p class="mb-0 text-muted">北京市海淀区科技园路88号创新大厦15层</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-3">
+                            <div class="me-3 text-primary">
+                                <i class="fas fa-phone fa-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">电话</h5>
+                                <p class="mb-0 text-muted">400-888-8888</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-3">
+                            <div class="me-3 text-primary">
+                                <i class="fas fa-envelope fa-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">邮箱</h5>
+                                <p class="mb-0 text-muted">info@company.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="mb-3">关注我们</h5>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="text-primary"><i class="fab fa-weixin fa-2x"></i></a>
+                            <a href="#" class="text-primary"><i class="fab fa-weibo fa-2x"></i></a>
+                            <a href="#" class="text-primary"><i class="fab fa-linkedin fa-2x"></i></a>
+                            <a href="#" class="text-primary"><i class="fab fa-youtube fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4">发送消息</h4>
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">姓名</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">邮箱</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="subject" class="form-label">主题</label>
+                                        <input type="text" class="form-control" id="subject" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">消息内容</label>
+                                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary">发送消息</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img src="https://placehold.co/150x50" alt="公司Logo" class="mb-3" height="50">
+                    <p class="mb-3">我们是一家专注于企业数字化转型的科技公司，致力于为客户提供创新的解决方案和优质的服务。</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">首页</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">关于我们</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">产品服务</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">解决方案</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">客户案例</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">产品服务</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">企业级解决方案</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">中小企业套装</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">行业定制版</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">云服务</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">技术支持</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">培训服务</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">联系方式</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 北京市海淀区科技园路88号</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 400-888-8888</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@company.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> 周一至周五: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-secondary">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">© 2023 公司名称. 保留所有权利.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <!-- 站点地图 Sitemap -->
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">隐私政策</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">使用条款</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">网站地图</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 浮动组件 Floating Widget -->
+    <div class="floating-widget">
+        <div class="d-flex flex-column gap-3">
+            <button id="chatButton" class="btn btn-primary rounded-circle p-3" style="width: 56px; height: 56px;" title="在线客服">
+                <i class="fas fa-headset"></i>
+            </button>
+            <button id="backToTopButton" class="btn btn-secondary rounded-circle p-3" style="width: 56px; height: 56px;" title="返回顶部">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 客服聊天窗口 (默认隐藏) -->
+    <div id="chatWindow" class="position-fixed bottom-0 end-0 mb-5 me-5 shadow-lg" style="width: 350px; display: none; right: 30px; bottom: 130px; z-index: 1050;">
+        <div class="card">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">在线客服</h5>
+                <button id="closeChat" class="btn btn-sm btn-light">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="card-body" style="height: 300px; overflow-y: auto;">
+                <div class="alert alert-info">
+                    您好！请问有什么可以帮您？
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="输入您的问题...">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 启用工具提示
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+
+        // 返回顶部功能
+        document.getElementById('backToTopButton').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // 平滑滚动效果
+            });
+        });
+
+        // 客服聊天窗口功能
+        const chatButton = document.getElementById('chatButton');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+
+        chatButton.addEventListener('click', function() {
+            // 切换聊天窗口显示/隐藏
+            if (chatWindow.style.display === 'none') {
+                chatWindow.style.display = 'block';
+            } else {
+                chatWindow.style.display = 'none';
+            }
+        });
+
+        closeChat.addEventListener('click', function() {
+            chatWindow.style.display = 'none';
+        });
+
+        // 滚动时显示/隐藏返回顶部按钮
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('backToTopButton');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

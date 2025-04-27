@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品中心 - 企业名称</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 自定义样式 */
+        .product-card {
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .product-img-container {
+            height: 200px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+        }
+        .product-img {
+            max-height: 100%;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        .badge-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1;
+        }
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+        }
+        .filter-section {
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+        .category-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .category-list li {
+            margin-bottom: 0.5rem;
+        }
+        .category-list a {
+            text-decoration: none;
+            color: #495057;
+            transition: all 0.2s;
+        }
+        .category-list a:hover, .category-list a.active {
+            color: #0d6efd;
+            font-weight: 500;
+        }
+        .category-list a.active {
+            padding-left: 10px;
+            border-left: 3px solid #0d6efd;
+        }
+        .floating-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        /* 添加一些动画效果 */
+        #chatWindow {
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        #chatWindow[style*="display: block"] {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .floating-widget .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            transition: all 0.2s ease;
+        }
+        
+        .floating-widget .btn:hover {
+            transform: scale(1.1);
+        }
+        
+        #backToTopButton {
+            display: none; /* 默认隐藏，滚动后显示 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 页眉通知条 -->
+    <div class="bg-primary text-white py-2">
+        <div class="container text-center">
+            <p class="mb-0">🎉 新产品上市：智能解决方案套装限时8折优惠！ <a href="#" class="text-white fw-bold">立即了解</a></p>
+        </div>
+    </div>
+
+    <!-- 页面头部 -->
+    <header class="sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="https://placehold.co/150x50" alt="公司Logo" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="product.html">产品中心</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">解决方案</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">客户案例</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">关于我们</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系我们</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex me-3">
+                            <input class="form-control me-2" type="search" placeholder="搜索产品..." aria-label="Search">
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        <div class="d-flex">
+                            <a href="#" class="btn btn-outline-primary me-2">登录</a>
+                            <a href="#" class="btn btn-primary">注册</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <nav aria-label="breadcrumb" class="bg-light py-3">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="#">首页</a></li>
+                <li class="breadcrumb-item active" aria-current="page">产品中心</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="fw-bold mb-3">产品中心</h1>
+                    <p class="lead text-muted">探索我们的高质量产品系列，满足您的各种业务需求</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- 左侧筛选栏 -->
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <div class="filter-section mb-4">
+                        <h5 class="fw-bold mb-3">产品分类</h5>
+                        <ul class="category-list">
+                            <li><a href="#" class="active">全部产品</a></li>
+                            <li><a href="#">企业级解决方案</a></li>
+                            <li><a href="#">中小企业套装</a></li>
+                            <li><a href="#">行业定制版</a></li>
+                            <li><a href="#">云服务产品</a></li>
+                            <li><a href="#">技术支持服务</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="filter-section mb-4">
+                        <h5 class="fw-bold mb-3">价格范围</h5>
+                        <div class="range-slider">
+                            <input type="range" class="form-range" min="0" max="10000" step="1000" id="priceRange">
+                            <div class="d-flex justify-content-between mt-2">
+                                <span>¥0</span>
+                                <span>¥10000+</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <h5 class="fw-bold mb-3">产品特性</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="feature1" checked>
+                            <label class="form-check-label" for="feature1">新品上市</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="feature2">
+                            <label class="form-check-label" for="feature2">促销优惠</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="feature3">
+                            <label class="form-check-label" for="feature3">支持定制</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="feature4">
+                            <label class="form-check-label" for="feature4">免费试用</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右侧产品列表 -->
+                <div class="col-lg-9">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div class="d-flex align-items-center">
+                            <span class="me-2">排序方式:</span>
+                            <select class="form-select form-select-sm" style="width: auto;">
+                                <option selected>默认排序</option>
+                                <option>价格从低到高</option>
+                                <option>价格从高到低</option>
+                                <option>新品优先</option>
+                                <option>销量最高</option>
+                            </select>
+                        </div>
+                        <div class="text-muted">
+                            共 <span class="fw-bold text-dark">24</span> 个产品
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <!-- 产品卡片 1 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <div class="product-img-container">
+                                        <img src="https://placehold.co/300x200" class="product-img" alt="产品图片">
+                                    </div>
+                                    <span class="badge bg-danger badge-tag">新品</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">企业智能管理平台</h5>
+                                    <p class="card-text text-muted">一体化企业管理解决方案，集成CRM、ERP和OA系统。</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold text-primary">¥12,800</span>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 产品卡片 2 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <div class="product-img-container">
+                                        <img src="https://placehold.co/300x200" class="product-img" alt="产品图片">
+                                    </div>
+                                    <span class="badge bg-warning text-dark badge-tag">促销</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">中小企业标准套装</h5>
+                                    <p class="card-text text-muted">专为中小企业设计的标准化产品，性价比高。</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="fw-bold text-primary">¥6,800</span>
+                                            <small class="text-decoration-line-through text-muted ms-2">¥8,500</small>
+                                        </div>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 产品卡片 3 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <div class="product-img-container">
+                                        <img src="https://placehold.co/300x200" class="product-img" alt="产品图片">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">零售行业定制版</h5>
+                                    <p class="card-text text-muted">针对零售行业的深度定制解决方案。</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold text-primary">¥15,000起</span>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 产品卡片 4 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <div class="product-img-container">
+                                        <img src="https://placehold.co/300x200" class="product-img" alt="产品图片">
+                                    </div>
+                                    <span class="badge bg-success badge-tag">热销</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">云端存储服务</h5>
+                                    <p class="card-text text-muted">安全可靠的云端存储解决方案。</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold text-primary">¥3,600/年</span>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 产品卡片 5 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <div class="product-img-container">
+                                        <img src="https://placehold.co/300x200" class="product-img" alt="产品图片">
+                                    </div>
+                                    <span class="badge bg-info badge-tag">试用</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">数据分析工具</h5>
+                                    <p class="card-text text-muted">强大的商业数据分析与可视化工具。</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold text-primary">¥9,200</span>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 产品卡片 6 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100">
+                                <div class="position-relative">
+                                    <div class="product-img-container">
+                                        <img src="https://placehold.co/300x200" class="product-img" alt="产品图片">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">技术支持服务包</h5>
+                                    <p class="card-text text-muted">专业的技术支持与维护服务。</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold text-primary">¥2,400/月</span>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 分页 -->
+                    <nav aria-label="Page navigation" class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">下一页</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img src="https://placehold.co/150x50" alt="公司Logo" class="mb-3" height="50">
+                    <p class="mb-3">我们是一家专注于企业数字化转型的科技公司，致力于为客户提供创新的解决方案和优质的服务。</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">首页</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">产品中心</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">解决方案</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">客户案例</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">关于我们</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">产品服务</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">企业级解决方案</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">中小企业套装</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">行业定制版</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">云服务</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">技术支持</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">培训服务</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">联系方式</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 北京市海淀区科技园路88号</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 400-888-8888</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@company.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> 周一至周五: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">© 2023 公司名称. 保留所有权利.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">隐私政策</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">使用条款</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">网站地图</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 浮动组件 -->
+    <div class="floating-widget">
+        <div class="d-flex flex-column gap-3">
+            <button id="chatButton" class="btn btn-primary rounded-circle p-3" style="width: 56px; height: 56px;" title="在线客服">
+                <i class="fas fa-headset"></i>
+            </button>
+            <button id="backToTopButton" class="btn btn-secondary rounded-circle p-3" style="width: 56px; height: 56px;" title="返回顶部">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 客服聊天窗口 (默认隐藏) -->
+    <div id="chatWindow" class="position-fixed bottom-0 end-0 mb-5 me-5 shadow-lg" style="width: 350px; display: none; right: 30px; bottom: 130px; z-index: 1050;">
+        <div class="card">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">在线客服</h5>
+                <button id="closeChat" class="btn btn-sm btn-light">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="card-body" style="height: 300px; overflow-y: auto;">
+                <div class="alert alert-info">
+                    您好！请问有什么可以帮您？
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="输入您的问题...">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 返回顶部功能
+        document.getElementById('backToTopButton').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // 平滑滚动效果
+            });
+        });
+
+        // 客服聊天窗口功能
+        const chatButton = document.getElementById('chatButton');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+
+        chatButton.addEventListener('click', function() {
+            // 切换聊天窗口显示/隐藏
+            if (chatWindow.style.display === 'none') {
+                chatWindow.style.display = 'block';
+            } else {
+                chatWindow.style.display = 'none';
+            }
+        });
+
+        closeChat.addEventListener('click', function() {
+            chatWindow.style.display = 'none';
+        });
+
+        // 滚动时显示/隐藏返回顶部按钮
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('backToTopButton');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
