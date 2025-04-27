@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - 企业名称</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .auth-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .auth-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .auth-header {
+            background-color: #0d6efd;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .auth-body {
+            padding: 30px;
+        }
+
+        .form-floating label {
+            padding-left: 35px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .form-floating {
+            position: relative;
+        }
+
+        .form-control {
+            padding-left: 35px;
+        }
+
+        .input-icon {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-50%);
+            color: #6c757d;
+            z-index: 5;
+            height: 20px; /* 添加固定高度 */
+            line-height: 20px; /* 确保图标垂直居中 */
+        }
+
+        /* 修复名字/姓氏输入框对齐问题 */
+        .name-input-group {
+            display: flex;
+            gap: 15px; /* 控制两个输入框之间的间距 */
+        }
+
+        .name-input-col {
+            flex: 1;
+            min-width: 0; /* 防止内容溢出 */
+        }
+
+        /* 调整浮动标签输入框的高度一致性 */
+        .form-floating > .form-control {
+            height: calc(3.5rem + 2px);
+        }
+
+        /* 确保所有输入框图标对齐一致 */
+        .form-floating.position-relative {
+            height: 100%; /* 使高度填充父容器 */
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #6c757d;
+            z-index: 5;
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .password-strength {
+            height: 5px;
+            background-color: #e9ecef;
+            margin-top: 5px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .password-strength-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #dc3545;
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+
+        .password-hints {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+
+        .password-hints ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .password-hints .valid {
+            color: #28a745;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 页眉通知条 -->
+    <div class="bg-primary text-white py-2">
+        <div class="container text-center">
+            <p class="mb-0">🎉 新用户注册即送100元优惠券！ <a href="register.html" class="text-white fw-bold">立即注册</a></p>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <header class="sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="https://placehold.co/150x50" alt="公司Logo" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.html">产品中心</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="solution.html">解决方案</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">关于我们</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">联系我们</a>
+                            </li>
+                        </ul>
+                        <div class="d-flex">
+                            <a href="login.html" class="btn btn-outline-primary me-2">登录</a>
+                            <a href="register.html" class="btn btn-primary">注册</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main>
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h3><i class="fas fa-user-plus me-2"></i>用户注册</h3>
+                </div>
+                <div class="auth-body">
+                    <form id="registerForm">
+                        <div class="row mb-4 name-input-group">
+                            <!-- 名字输入框 -->
+                            <div class="col-md-6 name-input-col">
+                                <div class="form-floating position-relative">
+                                    <div class="input-icon">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="firstName" placeholder="请输入名字" required>
+                                    <label for="firstName">名字</label>
+                                </div>
+                            </div>
+                            
+                            <!-- 姓氏输入框 -->
+                            <div class="col-md-6 name-input-col">
+                                <div class="form-floating position-relative">
+                                    <div class="input-icon">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="lastName" placeholder="请输入姓氏" required>
+                                    <label for="lastName">姓氏</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 position-relative">
+                            <div class="input-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="registerEmail" placeholder="请输入邮箱"
+                                    required>
+                                <label for="registerEmail">邮箱</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 position-relative">
+                            <div class="input-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="form-floating">
+                                <input type="tel" class="form-control" id="phoneNumber" placeholder="请输入手机号码" required>
+                                <label for="phoneNumber">手机号码</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="form-floating position-relative">
+                                <div class="input-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <input type="password" class="form-control" id="registerPassword" placeholder="请输入密码" required>
+                                <label for="registerPassword">密码</label>
+                                <div class="password-toggle" id="toggleRegisterPassword">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                            </div>
+                            <div class="password-strength">
+                                <div class="password-strength-bar" id="passwordStrengthBar"></div>
+                            </div>
+                            <div class="password-hints" id="passwordHints">
+                                <ul>
+                                    <li id="lengthHint">至少8个字符</li>
+                                    <li id="uppercaseHint">包含大写字母</li>
+                                    <li id="lowercaseHint">包含小写字母</li>
+                                    <li id="numberHint">包含数字</li>
+                                    <li id="specialHint">包含特殊字符</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 position-relative">
+                            <div class="input-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="form-floating">
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="请确认密码"
+                                    required>
+                                <label for="confirmPassword">确认密码</label>
+                            </div>
+                            <div class="password-toggle" id="toggleConfirmPassword">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div id="passwordMatchMessage" class="text-danger small mt-1"></div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                <label class="form-check-label" for="agreeTerms">
+                                    我已阅读并同意<a href="#" class="text-decoration-none">《服务条款》</a>和<a href="#"
+                                        class="text-decoration-none">《隐私政策》</a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3">注册</button>
+
+                        <div class="text-center">
+                            <span>已有账号? <a href="login.html" class="text-decoration-none">立即登录</a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">关于我们</h5>
+                    <p>企业名称是一家专注于提供优质服务的科技公司，致力于为客户创造价值。</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="mb-3">快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">首页</a></li>
+                        <li class="mb-2"><a href="product.html" class="text-white text-decoration-none">产品中心</a></li>
+                        <li class="mb-2"><a href="solution.html" class="text-white text-decoration-none">解决方案</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">关于我们</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="mb-3">联系方式</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 北京市海淀区科技园路88号</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 400-888-8888</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> contact@company.com</li>
+                        <li><i class="fas fa-clock me-2"></i> 周一至周五 9:00-18:00</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="mb-3">订阅我们</h5>
+                    <p>订阅我们的新闻通讯，获取最新产品信息和优惠活动。</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="您的邮箱" required>
+                            <button class="btn btn-primary" type="submit">订阅</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 企业名称. 保留所有权利.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">隐私政策</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">服务条款</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">帮助中心</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 密码显示/隐藏切换
+        document.getElementById('toggleRegisterPassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('registerPassword');
+            const icon = this.querySelector('i');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        document.getElementById('toggleConfirmPassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('confirmPassword');
+            const icon = this.querySelector('i');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        // 密码强度检查
+        document.getElementById('registerPassword').addEventListener('input', function () {
+            const password = this.value;
+            const strengthBar = document.getElementById('passwordStrengthBar');
+            const hints = {
+                length: document.getElementById('lengthHint'),
+                uppercase: document.getElementById('uppercaseHint'),
+                lowercase: document.getElementById('lowercaseHint'),
+                number: document.getElementById('numberHint'),
+                special: document.getElementById('specialHint')
+            };
+
+            let strength = 0;
+
+            // 检查长度
+            if (password.length >= 8) {
+                strength += 20;
+                hints.length.classList.add('valid');
+            } else {
+                hints.length.classList.remove('valid');
+            }
+
+            // 检查大写字母
+            if (/[A-Z]/.test(password)) {
+                strength += 20;
+                hints.uppercase.classList.add('valid');
+            } else {
+                hints.uppercase.classList.remove('valid');
+            }
+
+            // 检查小写字母
+            if (/[a-z]/.test(password)) {
+                strength += 20;
+                hints.lowercase.classList.add('valid');
+            } else {
+                hints.lowercase.classList.remove('valid');
+            }
+
+            // 检查数字
+            if (/\d/.test(password)) {
+                strength += 20;
+                hints.number.classList.add('valid');
+            } else {
+                hints.number.classList.remove('valid');
+            }
+
+            // 检查特殊字符
+            if (/[^A-Za-z0-9]/.test(password)) {
+                strength += 20;
+                hints.special.classList.add('valid');
+            } else {
+                hints.special.classList.remove('valid');
+            }
+
+            // 更新强度条
+            strengthBar.style.width = strength + '%';
+
+            // 根据强度设置颜色
+            if (strength < 40) {
+                strengthBar.style.backgroundColor = '#dc3545'; // 红色
+            } else if (strength < 80) {
+                strengthBar.style.backgroundColor = '#ffc107'; // 黄色
+            } else {
+                strengthBar.style.backgroundColor = '#28a745'; // 绿色
+            }
+        });
+
+        // 密码匹配检查
+        document.getElementById('confirmPassword').addEventListener('input', function () {
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = this.value;
+            const message = document.getElementById('passwordMatchMessage');
+
+            if (confirmPassword.length > 0 && password !== confirmPassword) {
+                message.textContent = '两次输入的密码不一致';
+            } else if (confirmPassword.length > 0) {
+                message.textContent = '';
+            }
+        });
+
+        // 表单提交
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // 这里可以添加表单验证和提交逻辑
+            alert('注册表单已提交！');
+
+            // 实际应用中，这里应该是AJAX请求
+            // fetch('/api/register', {
+            //     method: 'POST',
+            //     body: JSON.stringify({
+            //         firstName: document.getElementById('firstName').value,
+            //         lastName: document.getElementById('lastName').value,
+            //         email: document.getElementById('registerEmail').value,
+            //         phone: document.getElementById('phoneNumber').value,
+            //         password: document.getElementById('registerPassword').value
+            //     }),
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     if (data.success) {
+            //         window.location.href = '/dashboard';
+            //     } else {
+            //         alert(data.message || '注册失败');
+            //     }
+            // });
+        });
+    </script>
+</body>
+
+</html>

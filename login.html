@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 企业名称</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .auth-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .auth-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .auth-header {
+            background-color: #0d6efd;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .auth-body {
+            padding: 30px;
+        }
+        
+        .form-floating label {
+            padding-left: 35px;
+        }
+        
+        .form-control {
+            padding-left: 35px;
+        }
+        
+        .input-icon {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-50%);
+            color: #6c757d;
+            z-index: 5;
+        }
+        
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #6c757d;
+            z-index: 5;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #dee2e6;
+        }
+        
+        .divider-text {
+            padding: 0 10px;
+            color: #6c757d;
+            font-size: 0.875rem;
+        }
+        
+        .social-login .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .social-login .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-google {
+            background-color: #db4437;
+            color: white;
+        }
+        
+        .btn-facebook {
+            background-color: #4267b2;
+            color: white;
+        }
+        
+        .btn-wechat {
+            background-color: #07c160;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 页眉通知条 -->
+    <div class="bg-primary text-white py-2">
+        <div class="container text-center">
+            <p class="mb-0">🎉 新用户注册即送100元优惠券！ <a href="register.html" class="text-white fw-bold">立即注册</a></p>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <header class="sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="https://placehold.co/150x50" alt="公司Logo" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.html">产品中心</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="solution.html">解决方案</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">关于我们</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">联系我们</a>
+                            </li>
+                        </ul>
+                        <div class="d-flex">
+                            <a href="login.html" class="btn btn-outline-primary me-2">登录</a>
+                            <a href="register.html" class="btn btn-primary">注册</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main>
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h3><i class="fas fa-sign-in-alt me-2"></i>用户登录</h3>
+                </div>
+                <div class="auth-body">
+                    <form id="loginForm">
+                        <div class="mb-4 position-relative">
+                            <div class="input-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="loginEmail" placeholder="请输入邮箱" required>
+                                <label for="loginEmail">邮箱</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 position-relative">
+                            <div class="input-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="form-floating">
+                                <input type="password" class="form-control" id="loginPassword" placeholder="请输入密码" required>
+                                <label for="loginPassword">密码</label>
+                            </div>
+                            <div class="password-toggle" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">记住我</label>
+                            </div>
+                            <a href="forgot-password.html" class="text-decoration-none">忘记密码?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3">登录</button>
+                        
+                        <div class="text-center mb-3">
+                            <span>还没有账号? <a href="register.html" class="text-decoration-none">立即注册</a></span>
+                        </div>
+                        
+                        <div class="divider">
+                            <span class="divider-text">或使用以下方式登录</span>
+                        </div>
+                        
+                        <div class="row g-2 social-login">
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-google w-100">
+                                    <i class="fab fa-google"></i> Google
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-facebook w-100">
+                                    <i class="fab fa-facebook-f"></i> Facebook
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-wechat w-100">
+                                    <i class="fab fa-weixin"></i> 微信
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">关于我们</h5>
+                    <p>企业名称是一家专注于提供优质服务的科技公司，致力于为客户创造价值。</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="mb-3">快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">首页</a></li>
+                        <li class="mb-2"><a href="product.html" class="text-white text-decoration-none">产品中心</a></li>
+                        <li class="mb-2"><a href="solution.html" class="text-white text-decoration-none">解决方案</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">关于我们</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="mb-3">联系方式</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 北京市海淀区科技园路88号</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 400-888-8888</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> contact@company.com</li>
+                        <li><i class="fas fa-clock me-2"></i> 周一至周五 9:00-18:00</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="mb-3">订阅我们</h5>
+                    <p>订阅我们的新闻通讯，获取最新产品信息和优惠活动。</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="您的邮箱" required>
+                            <button class="btn btn-primary" type="submit">订阅</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 企业名称. 保留所有权利.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">隐私政策</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">服务条款</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">帮助中心</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 密码显示/隐藏切换
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('loginPassword');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+        
+        // 表单提交
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 这里可以添加表单验证和AJAX提交逻辑
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            console.log('登录信息:', { email, password, rememberMe });
+            
+            // 模拟登录成功
+            alert('登录成功！');
+            // window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>
