@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法律声明 - 企业名称</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 继承主站样式并添加法律声明页面特有样式 */
+        .legal-section {
+            padding: 80px 0;
+        }
+        
+        .legal-content {
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            padding: 2.5rem;
+        }
+        
+        .legal-content h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: #0d6efd;
+        }
+        
+        .legal-content h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .legal-content h4 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .legal-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .legal-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .legal-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        .floating-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        #backToTopButton {
+            display: none;
+        }
+        
+        /* 添加一些动画效果 */
+        #chatWindow {
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        #chatWindow[style*="display: block"] {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .floating-widget .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            transition: all 0.2s ease;
+        }
+        
+        .floating-widget .btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 页眉通知条 -->
+    <div class="bg-primary text-white py-2">
+        <div class="container text-center">
+            <p class="mb-0">🎉 新用户注册即享8折优惠！ <a href="register.html" class="text-white fw-bold">立即注册</a></p>
+        </div>
+    </div>
+
+    <!-- 页面头部 -->
+    <header class="sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="https://placehold.co/150x50" alt="公司Logo" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.html">产品中心</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="solution.html">解决方案</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">关于我们</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cases.html">客户案例</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="news.html">新闻动态</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">联系我们</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex me-3">
+                            <input class="form-control me-2" type="search" placeholder="搜索..." aria-label="Search">
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        <div class="d-flex">
+                            <a href="login.html" class="btn btn-outline-primary me-2">登录</a>
+                            <a href="register.html" class="btn btn-primary">注册</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <nav aria-label="breadcrumb" class="bg-light py-3">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">首页</a></li>
+                <li class="breadcrumb-item active" aria-current="page">法律声明</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main>
+        <!-- 法律声明内容 -->
+        <section class="legal-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="text-center mb-5">
+                            <h1 class="fw-bold mb-3">法律声明</h1>
+                            <p class="lead text-muted">最后更新日期：2023年6月1日</p>
+                        </div>
+                        
+                        <div class="legal-content">
+                            <p>欢迎访问我们的网站。在使用本网站前，请您仔细阅读并理解以下法律声明。访问和使用本网站即表示您同意遵守本声明中的所有条款和条件。</p>
+                            
+                            <h2>1. 版权声明</h2>
+                            <p>本网站所有内容，包括但不限于文字、图片、图表、标识、商标、音频、视频、软件等，均受《中华人民共和国著作权法》、《中华人民共和国商标法》及其他相关法律法规和国际条约的保护。</p>
+                            <ul>
+                                <li>未经本公司书面许可，任何单位或个人不得以任何方式复制、转载、修改、传播、展示或使用本网站的全部或部分内容</li>
+                                <li>本网站内容仅供个人非商业用途使用，未经授权不得用于任何商业目的</li>
+                                <li>如需使用本网站内容，请通过本声明末尾提供的联系方式与我们取得联系</li>
+                            </ul>
+                            
+                            <h2>2. 免责声明</h2>
+                            <p>本公司对本网站提供的信息和服务不提供任何明示或暗示的保证：</p>
+                            <ul>
+                                <li>本公司不保证本网站内容的准确性、完整性、及时性或可靠性</li>
+                                <li>本公司不对因使用或无法使用本网站而导致的任何直接或间接损失承担责任</li>
+                                <li>本公司保留在不事先通知的情况下随时修改或删除本网站内容的权利</li>
+                                <li>本网站可能包含第三方网站链接，这些链接仅为方便用户而提供，本公司不对这些网站的内容负责</li>
+                            </ul>
+                            
+                            <h2>3. 商标声明</h2>
+                            <p>本网站展示的所有商标、标识、服务标志等均为本公司或相关权利人的财产。未经相关权利人书面许可，任何单位或个人不得以任何方式使用这些商标。</p>
+                            
+                            <h2>4. 用户行为准则</h2>
+                            <p>使用本网站时，您同意：</p>
+                            <ul>
+                                <li>不从事任何违反中华人民共和国法律法规的行为</li>
+                                <li>不侵犯他人的知识产权、隐私权或其他合法权益</li>
+                                <li>不上传或传播任何非法、有害、威胁性、侮辱性、骚扰性、诽谤性、淫秽、暴力或其他不当内容</li>
+                                <li>不干扰或破坏本网站的正常运行</li>
+                                <li>不尝试未经授权访问本网站的任何部分、其他用户的账户或任何相关系统或网络</li>
+                            </ul>
+                            
+                            <h2>5. 责任限制</h2>
+                            <p>在任何情况下，本公司及其关联公司、董事、员工、代理或供应商均不对因使用或无法使用本网站而导致的任何直接、间接、附带、特殊、惩罚性或后果性损害承担责任，包括但不限于利润损失、数据丢失、业务中断等。</p>
+                            
+                            <h2>6. 法律适用与争议解决</h2>
+                            <ul>
+                                <li>本声明的解释、执行及争议的解决均适用中华人民共和国法律</li>
+                                <li>如因本声明或使用本网站产生任何争议，双方应首先通过友好协商解决</li>
+                                <li>协商不成时，任何一方均可向本公司所在地有管辖权的人民法院提起诉讼</li>
+                            </ul>
+                            
+                            <h2>7. 声明的修改</h2>
+                            <p>本公司有权随时修改本法律声明。修改后的声明将在本网站上公布，并自公布之日起生效。您应定期查看本声明以了解最新内容。</p>
+                            
+                            <h2>8. 联系我们</h2>
+                            <p>如果您对本法律声明有任何疑问，可以通过以下方式联系我们：</p>
+                            <ul>
+                                <li>电子邮件：legal@company.com</li>
+                                <li>电话：400-888-8888</li>
+                                <li>邮寄地址：北京市海淀区科技园路88号创新大厦15层 法务部</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img src="https://placehold.co/150x50" alt="公司Logo" class="mb-3" height="50">
+                    <p class="mb-3">我们是一家专注于企业数字化转型的科技公司，致力于为客户提供创新的解决方案和优质的服务。</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/" class="text-white-50 text-decoration-none">首页</a></li>
+                        <li class="mb-2"><a href="product.html" class="text-white-50 text-decoration-none">产品中心</a></li>
+                        <li class="mb-2"><a href="solution.html" class="text-white-50 text-decoration-none">解决方案</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">关于我们</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none">联系我们</a></li>
+                        <li class="mb-2"><a href="legal.html" class="text-white-50 text-decoration-none">法律声明</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">产品服务</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">企业级解决方案</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">中小企业套装</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">行业定制版</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">云服务</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">技术支持</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">培训服务</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">联系方式</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 北京市海淀区科技园路88号</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 400-888-8888</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@company.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> 周一至周五: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-secondary">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">© 2023 公司名称. 保留所有权利.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="privacy.html" class="text-white-50 text-decoration-none">隐私政策</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="terms.html" class="text-white-50 text-decoration-none">使用条款</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="sitemap.html" class="text-white-50 text-decoration-none">网站地图</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 浮动组件 -->
+    <div class="floating-widget">
+        <div class="d-flex flex-column gap-3">
+            <button id="chatButton" class="btn btn-primary rounded-circle p-3" style="width: 56px; height: 56px;" title="在线客服">
+                <i class="fas fa-headset"></i>
+            </button>
+            <button id="backToTopButton" class="btn btn-secondary rounded-circle p-3" style="width: 56px; height: 56px;" title="返回顶部">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 客服聊天窗口 (默认隐藏) -->
+    <div id="chatWindow" class="position-fixed bottom-0 end-0 mb-5 me-5 shadow-lg" style="width: 350px; display: none; right: 30px; bottom: 130px; z-index: 1050;">
+        <div class="card">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">在线客服</h5>
+                <button id="closeChat" class="btn btn-sm btn-light">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="card-body" style="height: 300px; overflow-y: auto;">
+                <div class="alert alert-info">
+                    您好！请问有什么可以帮您？
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="输入您的问题...">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 返回顶部功能
+        document.getElementById('backToTopButton').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 客服聊天窗口功能
+        const chatButton = document.getElementById('chatButton');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+
+        chatButton.addEventListener('click', function() {
+            // 切换聊天窗口显示/隐藏
+            if (chatWindow.style.display === 'none') {
+                chatWindow.style.display = 'block';
+            } else {
+                chatWindow.style.display = 'none';
+            }
+        });
+
+        closeChat.addEventListener('click', function() {
+            chatWindow.style.display = 'none';
+        });
+
+        // 滚动时显示/隐藏返回顶部按钮
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('backToTopButton');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

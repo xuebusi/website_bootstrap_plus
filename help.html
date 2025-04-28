@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帮助中心 - 企业名称</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 继承主站样式并添加帮助中心特有样式 */
+        .help-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x600') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 120px 0;
+        }
+
+        .help-search {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .help-category-card {
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid #dee2e6;
+        }
+
+        .help-category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: #0d6efd;
+        }
+
+        .help-category-icon {
+            font-size: 2.5rem;
+            color: #0d6efd;
+            margin-bottom: 1rem;
+        }
+
+        .help-article-card {
+            border-left: 3px solid #0d6efd;
+            transition: all 0.2s ease;
+        }
+
+        .help-article-card:hover {
+            background-color: #f8f9fa;
+        }
+
+        .help-sidebar {
+            position: sticky;
+            top: 20px;
+        }
+
+        .help-sidebar-link {
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            color: #495057;
+            text-decoration: none;
+            display: block;
+            transition: all 0.2s;
+        }
+
+        .help-sidebar-link:hover,
+        .help-sidebar-link.active {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+
+        .help-sidebar-link.active {
+            font-weight: 500;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .floating-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        #backToTopButton {
+            display: none;
+        }
+
+        /* 添加一些动画效果 */
+        #chatWindow {
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        #chatWindow[style*="display: block"] {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .floating-widget .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            transition: all 0.2s ease;
+        }
+
+        .floating-widget .btn:hover {
+            transform: scale(1.1);
+        }
+
+        .was-validated .form-control:invalid,
+        .form-control.is-invalid {
+            background-position: right calc(0.375em + 0.75rem) center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 页眉通知条 -->
+    <div class="bg-primary text-white py-2">
+        <div class="container text-center">
+            <p class="mb-0">🎉 新产品上市：智能解决方案套装限时8折优惠！ <a href="product.html" class="text-white fw-bold">立即了解</a></p>
+        </div>
+    </div>
+
+    <!-- 页面头部 -->
+    <header class="sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="https://placehold.co/150x50" alt="公司Logo" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.html">产品中心</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="solution.html">解决方案</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">关于我们</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cases.html">客户案例</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="news.html">新闻动态</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">联系我们</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex me-3">
+                            <input class="form-control me-2" type="search" placeholder="搜索..." aria-label="Search">
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        <div class="d-flex">
+                            <a href="login.html" class="btn btn-outline-primary me-2">登录</a>
+                            <a href="register.html" class="btn btn-primary">注册</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main>
+        <!-- 横幅区域 -->
+        <section class="help-hero text-center">
+            <div class="container">
+                <h1 class="display-4 fw-bold mb-4">帮助中心</h1>
+                <p class="lead mb-5">在这里找到您需要的答案和解决方案</p>
+                <div class="help-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-lg" placeholder="输入您的问题..."
+                            aria-label="搜索帮助中心">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search"></i> 搜索
+                        </button>
+                    </div>
+                    <div class="mt-2 text-white-50">
+                        <small>热门搜索：<a href="#" class="text-white">安装指南</a>, <a href="#" class="text-white">账户设置</a>, <a
+                                href="#" class="text-white">支付问题</a></small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 帮助分类 -->
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">帮助分类</h2>
+                    <p class="text-muted">选择您需要的帮助类别</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card help-category-card text-center p-4">
+                            <div class="help-category-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>产品文档</h3>
+                            <p class="text-muted">产品使用手册和技术文档</p>
+                            <a href="help-documentation.html" class="stretched-link"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card help-category-card text-center p-4">
+                            <div class="help-category-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <h3>常见问题</h3>
+                            <p class="text-muted">用户最常遇到的问题解答</p>
+                            <a href="help-faq.html" class="stretched-link"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card help-category-card text-center p-4">
+                            <div class="help-category-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3>视频教程</h3>
+                            <p class="text-muted">产品使用视频和操作指南</p>
+                            <a href="help-tutorials.html" class="stretched-link"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card help-category-card text-center p-4">
+                            <div class="help-category-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <h3>下载中心</h3>
+                            <p class="text-muted">软件下载和更新补丁</p>
+                            <a href="help-downloads.html" class="stretched-link"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 帮助内容 -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <!-- 侧边栏导航 -->
+                    <div class="col-lg-3 mb-4 mb-lg-0">
+                        <div class="card help-sidebar">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">帮助主题</h5>
+                                <nav class="nav flex-column">
+                                    <a href="#" class="help-sidebar-link active">
+                                        <i class="fas fa-home me-2"></i> 帮助中心首页
+                                    </a>
+                                    <a href="#" class="help-sidebar-link">
+                                        <i class="fas fa-user me-2"></i> 账户管理
+                                    </a>
+                                    <a href="#" class="help-sidebar-link">
+                                        <i class="fas fa-shopping-cart me-2"></i> 购买与支付
+                                    </a>
+                                    <a href="#" class="help-sidebar-link">
+                                        <i class="fas fa-download me-2"></i> 下载与安装
+                                    </a>
+                                    <a href="#" class="help-sidebar-link">
+                                        <i class="fas fa-cog me-2"></i> 设置与配置
+                                    </a>
+                                    <a href="#" class="help-sidebar-link">
+                                        <i class="fas fa-chart-line me-2"></i> 使用指南
+                                    </a>
+                                    <a href="#" class="help-sidebar-link">
+                                        <i class="fas fa-exclamation-triangle me-2"></i> 故障排除
+                                    </a>
+                                    <a href="#" class="help-sidebar-link">
+                                        <i class="fas fa-shield-alt me-2"></i> 安全与隐私
+                                    </a>
+                                    <a href="#" class="help-sidebar-link">
+                                        <i class="fas fa-phone me-2"></i> 联系我们
+                                    </a>
+                                </nav>
+
+                                <h5 class="card-title mt-4 mb-3">热门文章</h5>
+                                <nav class="nav flex-column">
+                                    <a href="#" class="help-sidebar-link">
+                                        <i class="fas fa-file-alt me-2"></i> 如何重置密码
+                                    </a>
+                                    <a href="#" class="help-sidebar-link">
+                                        <i class="fas fa-file-alt me-2"></i> 安装系统要求
+                                    </a>
+                                    <a href="#" class="help-sidebar-link">
+                                        <i class="fas fa-file-alt me-2"></i> 支付方式说明
+                                    </a>
+                                    <a href="#" class="help-sidebar-link">
+                                        <i class="fas fa-file-alt me-2"></i> 数据备份指南
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 主要内容区 -->
+                    <div class="col-lg-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title mb-4">常见问题</h2>
+
+                                <!-- 常见问题分类 -->
+                                <div class="mb-5">
+                                    <h4 class="mb-3"><i class="fas fa-user me-2 text-primary"></i> 账户管理</h4>
+                                    <div class="list-group mb-4">
+                                        <a href="#" class="list-group-item list-group-item-action help-article-card">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>如何注册新账户？</span>
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action help-article-card">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>忘记密码怎么办？</span>
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action help-article-card">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>如何修改账户信息？</span>
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action help-article-card">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>账户安全设置指南</span>
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="mb-5">
+                                    <h4 class="mb-3"><i class="fas fa-shopping-cart me-2 text-primary"></i> 购买与支付</h4>
+                                    <div class="list-group mb-4">
+                                        <a href="#" class="list-group-item list-group-item-action help-article-card">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>支持哪些支付方式？</span>
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action help-article-card">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>如何申请发票？</span>
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action help-article-card">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>退款政策说明</span>
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action help-article-card">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>订阅服务如何取消？</span>
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="mb-5">
+                                    <h4 class="mb-3"><i class="fas fa-download me-2 text-primary"></i> 下载与安装</h4>
+                                    <div class="list-group mb-4">
+                                        <a href="#" class="list-group-item list-group-item-action help-article-card">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>系统安装要求</span>
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action help-article-card">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>安装步骤详解</span>
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action help-article-card">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>如何升级到最新版本？</span>
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action help-article-card">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>安装失败解决方案</span>
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- 联系支持 -->
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-3">没有找到您需要的答案？</h4>
+                                        <p class="card-text mb-4">我们的支持团队随时准备为您提供帮助。</p>
+                                        <div class="d-flex flex-wrap gap-3">
+                                            <a href="contact.html" class="btn btn-primary">
+                                                <i class="fas fa-envelope me-2"></i> 联系我们
+                                            </a>
+                                            <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                                data-bs-target="#supportModal">
+                                                <i class="fas fa-headset me-2"></i> 提交问题
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img src="https://placehold.co/150x50" alt="公司Logo" class="mb-3" height="50">
+                    <p class="mb-3">我们是一家专注于企业数字化转型的科技公司，致力于为客户提供创新的解决方案和优质的服务。</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/" class="text-white-50 text-decoration-none">首页</a></li>
+                        <li class="mb-2"><a href="product.html" class="text-white-50 text-decoration-none">产品中心</a></li>
+                        <li class="mb-2"><a href="solution.html" class="text-white-50 text-decoration-none">解决方案</a>
+                        </li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">关于我们</a></li>
+                        <li class="mb-2"><a href="help.html" class="text-white-50 text-decoration-none">帮助中心</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">产品服务</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">企业级解决方案</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">中小企业套装</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">行业定制版</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">云服务</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">技术支持</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">培训服务</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">联系方式</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 北京市海淀区科技园路88号</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 400-888-8888</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> support@company.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> 周一至周五: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="my-4 bg-secondary">
+
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">© 2023 公司名称. 保留所有权利.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="privacy.html"
+                                class="text-white-50 text-decoration-none">隐私政策</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="terms.html"
+                                class="text-white-50 text-decoration-none">服务条款</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="sitemap.html"
+                                class="text-white-50 text-decoration-none">网站地图</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 浮动组件 -->
+    <div class="floating-widget">
+        <div class="d-flex flex-column gap-3">
+            <button id="chatButton" class="btn btn-primary rounded-circle p-3" style="width: 56px; height: 56px;"
+                title="在线客服">
+                <i class="fas fa-headset"></i>
+            </button>
+            <button id="backToTopButton" class="btn btn-secondary rounded-circle p-3" style="width: 56px; height: 56px;"
+                title="返回顶部">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 客服聊天窗口 (默认隐藏) -->
+    <div id="chatWindow" class="position-fixed bottom-0 end-0 mb-5 me-5 shadow-lg"
+        style="width: 350px; display: none; right: 30px; bottom: 130px; z-index: 1050;">
+        <div class="card">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">在线客服</h5>
+                <button id="closeChat" class="btn btn-sm btn-light">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="card-body" style="height: 300px; overflow-y: auto;">
+                <div class="alert alert-info">
+                    您好！请问有什么可以帮您？
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="输入您的问题...">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 支持请求模态框 -->
+    <div class="modal fade" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="supportModalLabel">提交支持请求</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="supportName" class="form-label">姓名 <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="supportName" required>
+                                <div class="invalid-feedback">
+                                    请输入您的姓名
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="supportEmail" class="form-label">邮箱 <span
+                                        class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="supportEmail" required>
+                                <div class="invalid-feedback">
+                                    请输入有效的邮箱地址
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="supportSubject" class="form-label">主题 <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="supportSubject" required>
+                                <div class="invalid-feedback">
+                                    请输入主题
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="supportCategory" class="form-label">问题类别 <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select" id="supportCategory" required>
+                                    <option value="" selected disabled>请选择...</option>
+                                    <option value="account">账户问题</option>
+                                    <option value="payment">支付问题</option>
+                                    <option value="technical">技术问题</option>
+                                    <option value="other">其他问题</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    请选择问题类别
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="supportMessage" class="form-label">详细描述 <span
+                                        class="text-danger">*</span></label>
+                                <textarea class="form-control" id="supportMessage" rows="5" required></textarea>
+                                <div class="invalid-feedback">
+                                    请详细描述您的问题
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="supportFile" class="form-label">附件 (可选)</label>
+                                <input type="file" class="form-control" id="supportFile">
+                                <div class="form-text">
+                                    可上传截图或相关文件 (最大10MB)
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="submitSupportRequest">提交请求</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 返回顶部按钮功能
+        window.addEventListener('scroll', function () {
+            var backToTopButton = document.getElementById('backToTopButton');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        document.getElementById('backToTopButton').addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 聊天窗口功能
+        document.getElementById('chatButton').addEventListener('click', function () {
+            var chatWindow = document.getElementById('chatWindow');
+            if (chatWindow.style.display === 'none' || chatWindow.style.display === '') {
+                chatWindow.style.display = 'block';
+            } else {
+                chatWindow.style.display = 'none';
+            }
+        });
+
+        document.getElementById('closeChat').addEventListener('click', function () {
+            document.getElementById('chatWindow').style.display = 'none';
+        });
+
+        // 表单验证
+        (function () {
+            'use strict'
+
+            // 获取所有需要验证的表单
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // 循环并阻止提交
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+
+        // 支持请求提交
+        document.getElementById('submitSupportRequest').addEventListener('click', function () {
+            var form = document.querySelector('.needs-validation');
+            if (form.checkValidity()) {
+                // 这里可以添加AJAX提交逻辑
+                alert('支持请求已提交！我们的团队会尽快与您联系。');
+                var modal = bootstrap.Modal.getInstance(document.getElementById('supportModal'));
+                modal.hide();
+            } else {
+                form.classList.add('was-validated');
+            }
+        });
+
+        // 搜索功能
+        document.querySelector('.help-search button').addEventListener('click', function () {
+            var searchTerm = document.querySelector('.help-search input').value;
+            if (searchTerm.trim() !== '') {
+                // 这里可以添加搜索逻辑
+                alert('正在搜索: ' + searchTerm);
+            }
+        });
+    </script>
+</body>
+
+</html>

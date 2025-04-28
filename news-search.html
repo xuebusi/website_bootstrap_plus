@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻搜索结果 - 企业名称</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 自定义样式 */
+        .search-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x600') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 120px 0;
+        }
+        
+        .search-box {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .filter-card {
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .news-card {
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .news-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .news-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(13, 110, 253, 0.9);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        .news-date {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            color: white;
+        }
+        
+        .pagination .page-link {
+            color: #0d6efd;
+        }
+        
+        .breadcrumb-item.active {
+            color: #6c757d;
+        }
+        
+        .result-count {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 页眉通知条 -->
+    <div class="bg-primary text-white py-2">
+        <div class="container text-center">
+            <p class="mb-0">🎉 新产品上市：智能解决方案套装限时8折优惠！ <a href="product.html" class="text-white fw-bold">立即了解</a></p>
+        </div>
+    </div>
+
+    <!-- 页面头部 -->
+    <header class="sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="https://placehold.co/150x50" alt="公司Logo" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.html">产品中心</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="solution.html">解决方案</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">关于我们</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cases.html">客户案例</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="news.html">新闻动态</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">联系我们</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex me-3">
+                            <input class="form-control me-2" type="search" placeholder="搜索..." aria-label="Search">
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        <div class="d-flex">
+                            <a href="login.html" class="btn btn-outline-primary me-2">登录</a>
+                            <a href="register.html" class="btn btn-primary">注册</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main>
+        <!-- 搜索横幅 -->
+        <section class="search-hero text-center">
+            <div class="container">
+                <h1 class="display-5 fw-bold mb-4">新闻搜索</h1>
+                <div class="search-box">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-lg" placeholder="输入关键词..." value="数字化转型" id="searchInput">
+                        <button class="btn btn-primary" type="button" id="searchButton">
+                            <i class="fas fa-search"></i> 搜索
+                        </button>
+                    </div>
+                    <div class="mt-2 text-white-50">
+                        <small>热门搜索：<a href="#" class="text-white">行业趋势</a>, <a href="#" class="text-white">产品更新</a>, <a href="#" class="text-white">企业动态</a></small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 面包屑导航 -->
+        <nav aria-label="breadcrumb" class="bg-light py-3">
+            <div class="container">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="news.html">新闻动态</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">搜索结果</li>
+                </ol>
+            </div>
+        </nav>
+
+        <!-- 搜索结果区 -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <!-- 筛选侧边栏 -->
+                    <div class="col-lg-3 mb-4">
+                        <div class="card filter-card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3"><i class="fas fa-filter me-2"></i>筛选条件</h5>
+                                
+                                <div class="mb-4">
+                                    <h6 class="mb-3">新闻分类</h6>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="categoryAll" checked>
+                                        <label class="form-check-label" for="categoryAll">
+                                            全部
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" value="company" id="categoryCompany">
+                                        <label class="form-check-label" for="categoryCompany">
+                                            企业动态
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" value="industry" id="categoryIndustry">
+                                        <label class="form-check-label" for="categoryIndustry">
+                                            行业新闻
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" value="product" id="categoryProduct">
+                                        <label class="form-check-label" for="categoryProduct">
+                                            产品更新
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" value="event" id="categoryEvent">
+                                        <label class="form-check-label" for="categoryEvent">
+                                            活动资讯
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h6 class="mb-3">时间范围</h6>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="radio" name="timeRange" id="timeAll" checked>
+                                        <label class="form-check-label" for="timeAll">
+                                            全部时间
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="radio" name="timeRange" id="timeWeek">
+                                        <label class="form-check-label" for="timeWeek">
+                                            最近一周
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="radio" name="timeRange" id="timeMonth">
+                                        <label class="form-check-label" for="timeMonth">
+                                            最近一月
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="radio" name="timeRange" id="timeYear">
+                                        <label class="form-check-label" for="timeYear">
+                                            最近一年
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <h6 class="mb-3">排序方式</h6>
+                                    <select class="form-select">
+                                        <option selected>按相关性排序</option>
+                                        <option>按时间从新到旧</option>
+                                        <option>按时间从旧到新</option>
+                                    </select>
+                                </div>
+                                
+                                <button class="btn btn-primary w-100" id="applyFilters">应用筛选</button>
+                            </div>
+                        </div>
+                        
+                        <div class="card filter-card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3"><i class="fas fa-fire me-2"></i>热门新闻</h5>
+                                <div class="list-group list-group-flush">
+                                    <a href="#" class="list-group-item list-group-item-action border-0 px-0 py-2">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1">公司荣获2023年度创新企业奖</h6>
+                                        </div>
+                                        <small class="text-muted">2023-06-15</small>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action border-0 px-0 py-2">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1">数字化转型白皮书正式发布</h6>
+                                        </div>
+                                        <small class="text-muted">2023-05-28</small>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action border-0 px-0 py-2">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1">新一代智能解决方案即将上市</h6>
+                                        </div>
+                                        <small class="text-muted">2023-05-10</small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 搜索结果列表 -->
+                    <div class="col-lg-9">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="mb-0">搜索结果</h4>
+                            <div class="result-count">找到约 24 条结果 (0.32秒)</div>
+                        </div>
+                        
+                        <!-- 搜索结果项 -->
+                        <div class="card news-card">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://placehold.co/600x400" class="img-fluid rounded-start news-img" alt="新闻图片">
+                                    <span class="news-category">行业新闻</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">2023年企业数字化转型趋势分析</h5>
+                                        <p class="card-text">本文深入分析了2023年企业数字化转型的主要趋势，包括人工智能、云计算和大数据等技术的应用，以及这些技术如何帮助企业提升效率和竞争力...</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="news-date"><i class="far fa-calendar-alt me-1"></i> 2023-06-20</small>
+                                            <a href="news-detail.html" class="btn btn-sm btn-outline-primary">阅读更多</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card news-card">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://placehold.co/600x400" class="img-fluid rounded-start news-img" alt="新闻图片">
+                                    <span class="news-category">企业动态</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">公司成功助力某大型企业完成数字化转型</h5>
+                                        <p class="card-text">近日，我公司成功为某大型制造企业完成了全面的数字化转型项目，通过部署智能生产系统和数据分析平台，帮助客户实现了生产效率提升30%...</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="news-date"><i class="far fa-calendar-alt me-1"></i> 2023-06-12</small>
+                                            <a href="news-detail.html" class="btn btn-sm btn-outline-primary">阅读更多</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card news-card">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://placehold.co/600x400" class="img-fluid rounded-start news-img" alt="新闻图片">
+                                    <span class="news-category">产品更新</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">数字化转型平台V3.2版本发布</h5>
+                                        <p class="card-text">我们很高兴地宣布数字化转型平台V3.2版本正式发布。新版本增加了AI驱动的数据分析模块和增强的安全功能，为企业提供更强大的数字化转型工具...</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="news-date"><i class="far fa-calendar-alt me-1"></i> 2023-05-30</small>
+                                            <a href="news-detail.html" class="btn btn-sm btn-outline-primary">阅读更多</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card news-card">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://placehold.co/600x400" class="img-fluid rounded-start news-img" alt="新闻图片">
+                                    <span class="news-category">活动资讯</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">数字化转型峰会圆满落幕</h5>
+                                        <p class="card-text">由我公司主办的2023年数字化转型峰会于上周在北京成功举办。来自全国各地的500多位企业代表参加了此次盛会，共同探讨数字化转型的最新趋势和实践...</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="news-date"><i class="far fa-calendar-alt me-1"></i> 2023-05-22</small>
+                                            <a href="news-detail.html" class="btn btn-sm btn-outline-primary">阅读更多</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 分页 -->
+                        <nav aria-label="Page navigation" class="mt-4">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">下一页</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img src="https://placehold.co/150x50" alt="公司Logo" class="mb-3" height="50">
+                    <p class="mb-3">我们是一家专注于企业数字化转型的科技公司，致力于为客户提供创新的解决方案和优质的服务。</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/" class="text-white-50 text-decoration-none">首页</a></li>
+                        <li class="mb-2"><a href="product.html" class="text-white-50 text-decoration-none">产品中心</a></li>
+                        <li class="mb-2"><a href="solution.html" class="text-white-50 text-decoration-none">解决方案</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">关于我们</a></li>
+                        <li class="mb-2"><a href="news.html" class="text-white-50 text-decoration-none">新闻动态</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">产品服务</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">企业级解决方案</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">中小企业套装</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">行业定制版</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">云服务</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">技术支持</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">培训服务</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">联系方式</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 北京市海淀区科技园路88号</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 400-888-8888</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> support@company.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> 周一至周五: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-secondary">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">© 2023 公司名称. 保留所有权利.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="privacy.html" class="text-white-50 text-decoration-none">隐私政策</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="terms.html" class="text-white-50 text-decoration-none">服务条款</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="sitemap.html" class="text-white-50 text-decoration-none">网站地图</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="btn btn-primary rounded-circle p-3 position-fixed" style="bottom: 30px; right: 30px; display: none;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // 返回顶部按钮
+        window.addEventListener('scroll', function() {
+            var backToTopButton = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+        
+        // 搜索功能
+        document.getElementById('searchButton').addEventListener('click', function() {
+            var searchTerm = document.getElementById('searchInput').value.trim();
+            if (searchTerm !== '') {
+                // 这里可以添加实际的搜索逻辑
+                console.log('搜索关键词:', searchTerm);
+                // 模拟搜索结果显示
+                document.querySelector('.result-count').textContent = '找到约 24 条结果 (0.32秒)';
+            }
+        });
+        
+        // 筛选功能
+        document.getElementById('applyFilters').addEventListener('click', function() {
+            // 获取所有选中的筛选条件
+            var selectedCategories = [];
+            if (document.getElementById('categoryCompany').checked) selectedCategories.push('企业动态');
+            if (document.getElementById('categoryIndustry').checked) selectedCategories.push('行业新闻');
+            if (document.getElementById('categoryProduct').checked) selectedCategories.push('产品更新');
+            if (document.getElementById('categoryEvent').checked) selectedCategories.push('活动资讯');
+            
+            var timeRange = '';
+            if (document.getElementById('timeWeek').checked) timeRange = '最近一周';
+            else if (document.getElementById('timeMonth').checked) timeRange = '最近一月';
+            else if (document.getElementById('timeYear').checked) timeRange = '最近一年';
+            
+            console.log('应用筛选:', {
+                categories: selectedCategories,
+                timeRange: timeRange
+            });
+            
+            // 这里可以添加实际的筛选逻辑
+            alert('筛选条件已应用');
+        });
+        
+        // 全选/取消全选分类
+        document.getElementById('categoryAll').addEventListener('change', function() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"][id^="category"]:not(#categoryAll)');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = document.getElementById('categoryAll').checked;
+            });
+        });
+    </script>
+</body>
+</html>

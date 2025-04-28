@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - 企业名称</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 继承主站样式并添加隐私政策页面特有样式 */
+        .privacy-section {
+            padding: 80px 0;
+        }
+        
+        .privacy-content {
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            padding: 2.5rem;
+        }
+        
+        .privacy-content h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: #0d6efd;
+        }
+        
+        .privacy-content h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .privacy-content h4 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .privacy-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .privacy-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .privacy-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        .floating-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        #backToTopButton {
+            display: none;
+        }
+        
+        /* 添加一些动画效果 */
+        #chatWindow {
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        #chatWindow[style*="display: block"] {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .floating-widget .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            transition: all 0.2s ease;
+        }
+        
+        .floating-widget .btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 页眉通知条 -->
+    <div class="bg-primary text-white py-2">
+        <div class="container text-center">
+            <p class="mb-0">🎉 新用户注册即享8折优惠！ <a href="register.html" class="text-white fw-bold">立即注册</a></p>
+        </div>
+    </div>
+
+    <!-- 页面头部 -->
+    <header class="sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="https://placehold.co/150x50" alt="公司Logo" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.html">产品中心</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="solution.html">解决方案</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">关于我们</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cases.html">客户案例</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="news.html">新闻动态</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">联系我们</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex me-3">
+                            <input class="form-control me-2" type="search" placeholder="搜索..." aria-label="Search">
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        <div class="d-flex">
+                            <a href="login.html" class="btn btn-outline-primary me-2">登录</a>
+                            <a href="register.html" class="btn btn-primary">注册</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <nav aria-label="breadcrumb" class="bg-light py-3">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">首页</a></li>
+                <li class="breadcrumb-item active" aria-current="page">隐私政策</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main>
+        <!-- 隐私政策内容 -->
+        <section class="privacy-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="text-center mb-5">
+                            <h1 class="fw-bold mb-3">隐私政策</h1>
+                            <p class="lead text-muted">最后更新日期：2023年6月1日</p>
+                        </div>
+                        
+                        <div class="privacy-content">
+                            <p>欢迎访问我们的网站。我们深知隐私对您的重要性，并致力于保护您的个人信息。本隐私政策旨在向您说明我们如何收集、使用、存储和保护您的个人信息，以及您对这些信息享有的权利。</p>
+                            
+                            <h2>1. 我们收集的信息</h2>
+                            <p>在您使用我们的网站和服务时，我们可能会收集以下类型的个人信息：</p>
+                            
+                            <h3>1.1 您直接提供的信息</h3>
+                            <ul>
+                                <li><strong>注册信息：</strong>当您创建账户时，我们可能会收集您的姓名、电子邮件地址、电话号码、公司名称等</li>
+                                <li><strong>联系信息：</strong>当您联系我们或提交查询时，我们可能会收集您的姓名、电子邮件地址、电话号码和通信内容</li>
+                                <li><strong>交易信息：</strong>当您购买我们的产品或服务时，我们可能会收集您的付款信息、账单地址和其他交易详情</li>
+                                <li><strong>求职信息：</strong>当您申请我们的职位时，我们可能会收集您的简历、求职信和其他相关信息</li>
+                            </ul>
+                            
+                            <h3>1.2 自动收集的信息</h3>
+                            <ul>
+                                <li><strong>设备信息：</strong>我们可能会收集有关您设备的特定信息，包括IP地址、浏览器类型、操作系统版本和设备标识符</li>
+                                <li><strong>使用数据：</strong>我们可能会收集有关您如何访问和使用我们网站的信息，包括访问时间、浏览页面和点击链接</li>
+                                <li><strong>位置信息：</strong>我们可能会收集有关您位置的粗略信息，通常基于您的IP地址</li>
+                                <li><strong>Cookies和类似技术：</strong>我们使用cookies和类似跟踪技术来跟踪您在我们网站上的活动并保存某些信息</li>
+                            </ul>
+                            
+                            <h2>2. 我们如何使用您的信息</h2>
+                            <p>我们可能会将收集的信息用于以下目的：</p>
+                            <ul>
+                                <li>提供、运营和维护我们的网站和服务</li>
+                                <li>改进、个性化和扩展我们的网站和服务</li>
+                                <li>理解和分析您如何使用我们的网站和服务</li>
+                                <li>开发新产品、服务、功能和功能</li>
+                                <li>与您沟通，包括客户服务、提供更新和其他与网站相关的信息，以及营销和促销目的</li>
+                                <li>处理您的交易并管理您的订单</li>
+                                <li>发送您电子邮件</li>
+                                <li>发现和防止欺诈</li>
+                                <li>遵守法律义务和执行我们的条款和条件</li>
+                            </ul>
+                            
+                            <h2>3. 信息共享与披露</h2>
+                            <p>我们不会出售您的个人信息。我们可能会在以下情况下共享您的信息：</p>
+                            
+                            <h3>3.1 与服务提供商共享</h3>
+                            <p>我们可能会与第三方服务提供商共享您的个人信息，以监控和分析我们网站的使用情况，处理付款，提供客户支持等。这些服务提供商有义务保护您的信息，并仅代表我们执行任务。</p>
+                            
+                            <h3>3.2 业务转让</h3>
+                            <p>如果公司涉及合并、收购或资产出售，您的个人信息可能会被转移。我们将在您的个人信息被转移并受不同隐私政策约束之前发出通知。</p>
+                            
+                            <h3>3.3 法律要求</h3>
+                            <p>在以下情况下，我们可能会披露您的个人信息：
+                            <ul>
+                                <li>遵守法律义务</li>
+                                <li>保护和捍卫公司的权利或财产</li>
+                                <li>防止或调查与网站相关的可能不当行为</li>
+                                <li>保护网站用户或公众的人身安全</li>
+                                <li>防止法律责任</li>
+                            </ul>
+                            
+                            <h2>4. Cookies和跟踪技术</h2>
+                            <p>我们使用Cookies和类似的跟踪技术来跟踪我们网站上的活动并保存某些信息。您可以通过浏览器设置拒绝所有Cookies或指示何时发送Cookie。但是，如果您不接受Cookies，您可能无法使用我们网站的某些部分。</p>
+                            
+                            <h3>4.1 我们使用的Cookies类型</h3>
+                            <ul>
+                                <li><strong>必要Cookies：</strong>这些Cookies对于网站运行至关重要，使您能够浏览网站并使用其功能</li>
+                                <li><strong>性能Cookies：</strong>这些Cookies收集有关访问者如何使用网站的信息，例如最常访问的页面</li>
+                                <li><strong>功能Cookies：</strong>这些Cookies允许网站记住您做出的选择，如用户名或区域选择</li>
+                                <li><strong>目标/广告Cookies：</strong>这些Cookies用于提供与您和您的兴趣更相关的广告</li>
+                            </ul>
+                            
+                            <h2>5. 数据安全</h2>
+                            <p>我们采用适当的技术和组织措施来保护您的个人信息免遭未经授权的访问、更改、披露或销毁。然而，没有任何互联网传输或电子存储方法是100%安全的，因此我们不能保证其绝对安全。</p>
+                            
+                            <h2>6. 您的数据保护权利</h2>
+                            <p>根据适用法律，您可能拥有以下权利：</p>
+                            <ul>
+                                <li><strong>访问权：</strong>请求获取我们持有的关于您的个人信息的副本</li>
+                                <li><strong>更正权：</strong>请求更正我们持有的关于您的不准确的个人信息</li>
+                                <li><strong>删除权：</strong>请求删除我们持有的关于您的个人信息</li>
+                                <li><strong>限制处理权：</strong>请求限制对您个人信息的处理</li>
+                                <li><strong>数据可携权：</strong>请求以结构化、常用和机器可读的格式获取您提供给我们的个人信息</li>
+                                <li><strong>反对权：</strong>反对我们处理您的个人信息</li>
+                                <li><strong>撤回同意权：</strong>随时撤回您之前给予的同意</li>
+                            </ul>
+                            <p>要行使这些权利，请通过本政策末尾提供的联系方式与我们联系。</p>
+                            
+                            <h2>7. 儿童隐私</h2>
+                            <p>我们的服务不面向13岁以下的个人。我们不会有意收集13岁以下儿童的个人信息。如果您是父母或监护人，并且您知道您的孩子向我们提供了个人信息，请与我们联系。</p>
+                            
+                            <h2>8. 第三方网站链接</h2>
+                            <p>我们的网站可能包含指向非我们运营的第三方网站的链接。如果您点击第三方链接，您将被定向到该第三方网站。我们强烈建议您查看您访问的每个网站的隐私政策。</p>
+                            
+                            <h2>9. 隐私政策的变更</h2>
+                            <p>我们可能会不时更新我们的隐私政策。我们将在本页面上发布新的隐私政策，并通过电子邮件和/或我们网站上的显著通知通知您任何更改，然后再更改生效。</p>
+                            
+                            <h2>10. 联系我们</h2>
+                            <p>如果您对本隐私政策有任何疑问，可以通过以下方式联系我们：</p>
+                            <ul>
+                                <li>电子邮件：privacy@company.com</li>
+                                <li>电话：400-888-8888</li>
+                                <li>邮寄地址：北京市海淀区科技园路88号创新大厦15层 隐私保护办公室</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img src="https://placehold.co/150x50" alt="公司Logo" class="mb-3" height="50">
+                    <p class="mb-3">我们是一家专注于企业数字化转型的科技公司，致力于为客户提供创新的解决方案和优质的服务。</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/" class="text-white-50 text-decoration-none">首页</a></li>
+                        <li class="mb-2"><a href="product.html" class="text-white-50 text-decoration-none">产品中心</a></li>
+                        <li class="mb-2"><a href="solution.html" class="text-white-50 text-decoration-none">解决方案</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">关于我们</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none">联系我们</a></li>
+                        <li class="mb-2"><a href="privacy.html" class="text-white-50 text-decoration-none">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">产品服务</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">企业级解决方案</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">中小企业套装</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">行业定制版</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">云服务</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">技术支持</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">培训服务</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">联系方式</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 北京市海淀区科技园路88号</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 400-888-8888</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@company.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> 周一至周五: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-secondary">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">© 2023 公司名称. 保留所有权利.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="privacy.html" class="text-white-50 text-decoration-none">隐私政策</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="terms.html" class="text-white-50 text-decoration-none">使用条款</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="sitemap.html" class="text-white-50 text-decoration-none">网站地图</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 浮动组件 -->
+    <div class="floating-widget">
+        <div class="d-flex flex-column gap-3">
+            <button id="chatButton" class="btn btn-primary rounded-circle p-3" style="width: 56px; height: 56px;" title="在线客服">
+                <i class="fas fa-headset"></i>
+            </button>
+            <button id="backToTopButton" class="btn btn-secondary rounded-circle p-3" style="width: 56px; height: 56px;" title="返回顶部">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 客服聊天窗口 (默认隐藏) -->
+    <div id="chatWindow" class="position-fixed bottom-0 end-0 mb-5 me-5 shadow-lg" style="width: 350px; display: none; right: 30px; bottom: 130px; z-index: 1050;">
+        <div class="card">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">在线客服</h5>
+                <button id="closeChat" class="btn btn-sm btn-light">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="card-body" style="height: 300px; overflow-y: auto;">
+                <div class="alert alert-info">
+                    您好！请问有什么可以帮您？
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="输入您的问题...">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 返回顶部功能
+        document.getElementById('backToTopButton').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 客服聊天窗口功能
+        const chatButton = document.getElementById('chatButton');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+
+        chatButton.addEventListener('click', function() {
+            // 切换聊天窗口显示/隐藏
+            if (chatWindow.style.display === 'none') {
+                chatWindow.style.display = 'block';
+            } else {
+                chatWindow.style.display = 'none';
+            }
+        });
+
+        closeChat.addEventListener('click', function() {
+            chatWindow.style.display = 'none';
+        });
+
+        // 滚动时显示/隐藏返回顶部按钮
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('backToTopButton');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加入我们 - 企业名称</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 继承主站样式并添加招聘页面特有样式 */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x600') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 120px 0;
+        }
+
+        .job-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .job-badge.full-time {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+
+        .job-badge.part-time {
+            background-color: rgba(25, 135, 84, 0.1);
+            color: #198754;
+        }
+
+        .job-badge.internship {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+
+        .job-badge.remote {
+            background-color: rgba(108, 117, 125, 0.1);
+            color: #6c757d;
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .process-step-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: rgba(13, 110, 253, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0d6efd;
+            font-size: 1.25rem;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-radius: 0.5rem;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .benefit-card:hover {
+            background-color: #e9ecef;
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #0d6efd;
+            margin-bottom: 1rem;
+        }
+
+        .tab-content {
+            padding: 2rem 0;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: #0d6efd;
+        }
+
+        .nav-pills .nav-link {
+            color: #495057;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        #backToTopButton {
+            display: none;
+        }
+
+        .job-detail-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 页眉通知条 -->
+    <div class="bg-primary text-white py-2">
+        <div class="container text-center">
+            <p class="mb-0">🚀 热招岗位：前端开发工程师、产品经理、数据分析师！ <a href="#positions" class="text-white fw-bold">立即查看</a></p>
+        </div>
+    </div>
+
+    <!-- 页面头部 -->
+    <header class="sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="https://placehold.co/150x50" alt="公司Logo" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.html">产品中心</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="solution.html">解决方案</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">关于我们</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cases.html">客户案例</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="news.html">新闻动态</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="career.html">加入我们</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex me-3">
+                            <input class="form-control me-2" type="search" placeholder="搜索..." aria-label="Search">
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        <div class="d-flex">
+                            <a href="login.html" class="btn btn-outline-primary me-2">登录</a>
+                            <a href="register.html" class="btn btn-primary">注册</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main>
+        <!-- 横幅区域 -->
+        <section class="hero-section text-center">
+            <div class="container">
+                <h1 class="display-4 fw-bold mb-4">加入我们的团队</h1>
+                <p class="lead mb-5">与优秀的人一起，创造非凡的产品和服务</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#positions" class="btn btn-primary btn-lg px-4">查看职位</a>
+                    <a href="#apply" class="btn btn-outline-light btn-lg px-4">立即应聘</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 为什么加入我们 -->
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">为什么选择我们</h2>
+                    <p class="text-muted">我们提供充满挑战和成长机会的工作环境</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h3 class="fw-bold mb-4">我们的文化</h3>
+                        <p class="mb-4">我们相信优秀的人才和积极的文化是公司成功的基石。我们鼓励创新、协作和持续学习，为每位员工提供充分的发展空间。</p>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <div class="bg-primary bg-opacity-10 p-2 rounded-circle">
+                                            <i class="fas fa-lightbulb text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-2">创新精神</h5>
+                                        <p class="text-muted mb-0">鼓励尝试新想法，容忍失败</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <div class="bg-primary bg-opacity-10 p-2 rounded-circle">
+                                            <i class="fas fa-users text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-2">团队协作</h5>
+                                        <p class="text-muted mb-0">跨部门协作，共同成长</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <div class="bg-primary bg-opacity-10 p-2 rounded-circle">
+                                            <i class="fas fa-chart-line text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-2">快速成长</h5>
+                                        <p class="text-muted mb-0">清晰的职业发展路径</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <div class="bg-primary bg-opacity-10 p-2 rounded-circle">
+                                            <i class="fas fa-balance-scale text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-2">工作生活平衡</h5>
+                                        <p class="text-muted mb-0">弹性工作制，关注员工福祉</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/example" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 职位列表 -->
+        <section class="py-5 bg-light" id="positions">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">开放职位</h2>
+                    <p class="text-muted">加入我们，一起创造未来</p>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            <input type="text" class="form-control" placeholder="搜索职位..." id="jobSearch">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-filter"></i></span>
+                            <select class="form-select" id="jobFilter">
+                                <option selected>所有部门</option>
+                                <option>技术研发</option>
+                                <option>产品设计</option>
+                                <option>市场营销</option>
+                                <option>运营支持</option>
+                                <option>人力资源</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <ul class="nav nav-pills flex-column mb-4 mb-lg-0" id="jobTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="tech-tab" data-bs-toggle="pill"
+                                    data-bs-target="#tech" type="button" role="tab">技术研发</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="product-tab" data-bs-toggle="pill"
+                                    data-bs-target="#product" type="button" role="tab">产品设计</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="marketing-tab" data-bs-toggle="pill"
+                                    data-bs-target="#marketing" type="button" role="tab">市场营销</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="operation-tab" data-bs-toggle="pill"
+                                    data-bs-target="#operation" type="button" role="tab">运营支持</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="hr-tab" data-bs-toggle="pill" data-bs-target="#hr"
+                                    type="button" role="tab">人力资源</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="tab-content" id="jobTabsContent">
+                            <!-- 技术研发职位 -->
+                            <div class="tab-pane fade show active" id="tech" role="tabpanel">
+                                <div class="card job-card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <h3 class="card-title mb-0">高级前端开发工程师</h3>
+                                            <span class="job-badge full-time">全职</span>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-map-marker-alt me-1"></i> 北京</span>
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-dollar-sign me-1"></i> 25K-40K</span>
+                                            <span class="badge bg-light text-dark"><i class="fas fa-briefcase me-1"></i>
+                                                3年以上经验</span>
+                                        </div>
+                                        <p class="card-text mb-4">负责公司核心产品的前端开发工作，参与技术架构设计和优化，带领初级工程师完成项目开发。</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">发布于 3 天前</small>
+                                            <a href="#apply" class="btn btn-outline-primary btn-sm">立即申请</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card job-card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <h3 class="card-title mb-0">后端开发工程师 (Java)</h3>
+                                            <span class="job-badge full-time">全职</span>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-map-marker-alt me-1"></i> 上海</span>
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-dollar-sign me-1"></i> 20K-35K</span>
+                                            <span class="badge bg-light text-dark"><i class="fas fa-briefcase me-1"></i>
+                                                2年以上经验</span>
+                                        </div>
+                                        <p class="card-text mb-4">负责公司后端服务开发，参与系统架构设计，确保系统高性能、高可用。</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">发布于 1 周前</small>
+                                            <a href="#apply" class="btn btn-outline-primary btn-sm">立即申请</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card job-card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <h3 class="card-title mb-0">数据工程师</h3>
+                                            <span class="job-badge full-time">全职</span>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-map-marker-alt me-1"></i> 深圳</span>
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-dollar-sign me-1"></i> 18K-30K</span>
+                                            <span class="badge bg-light text-dark"><i class="fas fa-briefcase me-1"></i>
+                                                1年以上经验</span>
+                                        </div>
+                                        <p class="card-text mb-4">负责数据仓库建设、ETL流程开发和维护，支持业务数据分析和决策。</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">发布于 2 周前</small>
+                                            <a href="#apply" class="btn btn-outline-primary btn-sm">立即申请</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 产品设计职位 -->
+                            <div class="tab-pane fade" id="product" role="tabpanel">
+                                <div class="card job-card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <h3 class="card-title mb-0">产品经理</h3>
+                                            <span class="job-badge full-time">全职</span>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-map-marker-alt me-1"></i> 北京</span>
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-dollar-sign me-1"></i> 20K-35K</span>
+                                            <span class="badge bg-light text-dark"><i class="fas fa-briefcase me-1"></i>
+                                                3年以上经验</span>
+                                        </div>
+                                        <p class="card-text mb-4">负责公司核心产品的规划和管理，协调研发、设计、运营等团队推进产品迭代。</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">发布于 5 天前</small>
+                                            <a href="#apply" class="btn btn-outline-primary btn-sm">立即申请</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card job-card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <h3 class="card-title mb-0">UI/UX设计师</h3>
+                                            <span class="job-badge full-time">全职</span>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-map-marker-alt me-1"></i> 远程</span>
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-dollar-sign me-1"></i> 15K-25K</span>
+                                            <span class="badge bg-light text-dark"><i class="fas fa-briefcase me-1"></i>
+                                                2年以上经验</span>
+                                        </div>
+                                        <p class="card-text mb-4">负责公司产品的用户界面和用户体验设计，参与产品设计全流程。</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">发布于 2 周前</small>
+                                            <a href="#apply" class="btn btn-outline-primary btn-sm">立即申请</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 市场营销职位 -->
+                            <div class="tab-pane fade" id="marketing" role="tabpanel">
+                                <div class="card job-card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <h3 class="card-title mb-0">市场推广经理</h3>
+                                            <span class="job-badge full-time">全职</span>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-map-marker-alt me-1"></i> 上海</span>
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-dollar-sign me-1"></i> 18K-30K</span>
+                                            <span class="badge bg-light text-dark"><i class="fas fa-briefcase me-1"></i>
+                                                3年以上经验</span>
+                                        </div>
+                                        <p class="card-text mb-4">负责公司产品的市场推广策略制定和执行，管理推广团队达成业绩目标。</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">发布于 3 天前</small>
+                                            <a href="#apply" class="btn btn-outline-primary btn-sm">立即申请</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card job-card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <h3 class="card-title mb-0">内容运营专员</h3>
+                                            <span class="job-badge full-time">全职</span>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-map-marker-alt me-1"></i> 北京</span>
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-dollar-sign me-1"></i> 10K-15K</span>
+                                            <span class="badge bg-light text-dark"><i class="fas fa-briefcase me-1"></i>
+                                                1年以上经验</span>
+                                        </div>
+                                        <p class="card-text mb-4">负责公司官方媒体平台的内容策划、创作和运营，提升品牌影响力。</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">发布于 1 周前</small>
+                                            <a href="#apply" class="btn btn-outline-primary btn-sm">立即申请</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 运营支持职位 -->
+                            <div class="tab-pane fade" id="operation" role="tabpanel">
+                                <div class="card job-card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <h3 class="card-title mb-0">客户成功经理</h3>
+                                            <span class="job-badge full-time">全职</span>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-map-marker-alt me-1"></i> 广州</span>
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-dollar-sign me-1"></i> 15K-25K</span>
+                                            <span class="badge bg-light text-dark"><i class="fas fa-briefcase me-1"></i>
+                                                2年以上经验</span>
+                                        </div>
+                                        <p class="card-text mb-4">负责客户关系维护和增值服务，提升客户满意度和续费率。</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">发布于 4 天前</small>
+                                            <a href="#apply" class="btn btn-outline-primary btn-sm">立即申请</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 人力资源职位 -->
+                            <div class="tab-pane fade" id="hr" role="tabpanel">
+                                <div class="card job-card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <h3 class="card-title mb-0">招聘专员</h3>
+                                            <span class="job-badge full-time">全职</span>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-map-marker-alt me-1"></i> 北京</span>
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-dollar-sign me-1"></i> 12K-18K</span>
+                                            <span class="badge bg-light text-dark"><i class="fas fa-briefcase me-1"></i>
+                                                1年以上经验</span>
+                                        </div>
+                                        <p class="card-text mb-4">负责公司人才招聘工作，制定并执行招聘计划，满足各部门用人需求。</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">发布于 1 周前</small>
+                                            <a href="#apply" class="btn btn-outline-primary btn-sm">立即申请</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card job-card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <h3 class="card-title mb-0">HR实习生</h3>
+                                            <span class="job-badge internship">实习</span>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-map-marker-alt me-1"></i> 上海</span>
+                                            <span class="badge bg-light text-dark"><i
+                                                    class="fas fa-dollar-sign me-1"></i> 150-200/天</span>
+                                            <span class="badge bg-light text-dark"><i class="fas fa-briefcase me-1"></i>
+                                                1年以上经验</span>
+                                        </div>
+                                        <p class="card-text mb-4">协助HR团队完成招聘流程中的各项事务，包括简历筛选、面试安排等。</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">发布于 2 周前</small>
+                                            <a href="#apply" class="btn btn-outline-primary btn-sm">立即申请</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- 招聘流程 -->
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">招聘流程</h2>
+                    <p class="text-muted">透明高效的招聘流程，让您清晰了解每个环节</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                        <div class="process-step">
+                            <div class="process-step-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h4>简历投递</h4>
+                            <p class="text-muted">通过我们的招聘系统或邮箱提交简历，我们会在3个工作日内给予反馈。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                        <div class="process-step">
+                            <div class="process-step-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h4>电话面试</h4>
+                            <p class="text-muted">HR会与您进行初步沟通，了解基本情况和工作期望。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                        <div class="process-step">
+                            <div class="process-step-icon">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <h4>现场面试</h4>
+                            <p class="text-muted">与部门负责人和技术专家面对面交流，展示您的专业能力。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="process-step-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h4>录用通知</h4>
+                            <p class="text-muted">通过所有面试环节后，我们将发出正式录用通知。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 员工福利 -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">员工福利</h2>
+                    <p class="text-muted">我们为员工提供全方位的福利保障</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-umbrella-beach"></i>
+                            </div>
+                            <h4>带薪休假</h4>
+                            <p class="text-muted">15天起带薪年假，随工龄增长而增加</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h4>健康保障</h4>
+                            <p class="text-muted">五险一金+补充商业医疗保险</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4>学习发展</h4>
+                            <p class="text-muted">年度培训预算和职业发展支持</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h4>餐饮补贴</h4>
+                            <p class="text-muted">免费午餐和下午茶，零食饮料无限供应</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <h4>健身福利</h4>
+                            <p class="text-muted">健身房会员补贴和定期体育活动</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-baby-carriage"></i>
+                            </div>
+                            <h4>家庭关怀</h4>
+                            <p class="text-muted">育儿津贴和家庭日活动</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <h4>绩效奖金</h4>
+                            <p class="text-muted">季度和年度绩效奖金计划</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <h4>团队旅行</h4>
+                            <p class="text-muted">年度团队建设活动和海外旅行机会</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 应聘表单 -->
+        <section class="py-5" id="apply">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-sm">
+                            <div class="card-body p-4 p-md-5">
+                                <div class="text-center mb-5">
+                                    <h2 class="fw-bold mb-3">应聘申请表</h2>
+                                    <p class="text-muted">填写以下信息，我们会尽快与您联系</p>
+                                </div>
+
+                                <form>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="fullName" class="form-label">姓名 <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="fullName" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="email" class="form-label">邮箱 <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="phone" class="form-label">电话 <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="tel" class="form-control" id="phone" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="position" class="form-label">应聘职位 <span
+                                                    class="text-danger">*</span></label>
+                                            <select class="form-select" id="position" required>
+                                                <option value="" selected disabled>请选择职位</option>
+                                                <option>高级前端开发工程师</option>
+                                                <option>后端开发工程师 (Java)</option>
+                                                <option>数据工程师</option>
+                                                <option>产品经理</option>
+                                                <option>UI/UX设计师</option>
+                                                <option>市场推广经理</option>
+                                                <option>内容运营专员</option>
+                                                <option>客户成功经理</option>
+                                                <option>招聘专员</option>
+                                                <option>HR实习生</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="resume" class="form-label">上传简历 <span
+                                                    class="text-danger">*</span></label>
+                                            <input class="form-control" type="file" id="resume" required>
+                                            <small class="text-muted">支持PDF、DOC、DOCX格式，文件大小不超过5MB</small>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="coverLetter" class="form-label">求职信</label>
+                                            <textarea class="form-control" id="coverLetter" rows="4"
+                                                placeholder="简单介绍自己，为什么对这个职位感兴趣..."></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="source" class="form-label">您是如何得知这个职位的？</label>
+                                            <select class="form-select" id="source">
+                                                <option value="" selected disabled>请选择</option>
+                                                <option>公司官网</option>
+                                                <option>招聘网站</option>
+                                                <option>员工推荐</option>
+                                                <option>社交媒体</option>
+                                                <option>校园招聘</option>
+                                                <option>其他</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="agreeTerms"
+                                                    required>
+                                                <label class="form-check-label" for="agreeTerms">
+                                                    我已阅读并同意<a href="privacy.html">隐私政策</a>和<a href="terms.html">使用条款</a>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-4">
+                                            <button type="submit" class="btn btn-primary w-100 py-3">提交申请</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见问题 -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">常见问题</h2>
+                    <p class="text-muted">关于招聘流程和公司文化的常见问题解答</p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item mb-3 border rounded">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq1">
+                                        招聘流程通常需要多长时间？
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        我们的招聘流程通常需要2-4周时间，具体时间取决于职位和面试安排。我们会在收到简历后3个工作日内给予反馈，通过电话面试后1周内安排现场面试，面试结果会在3-5个工作日内通知。
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3 border rounded">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq2">
+                                        公司是否提供实习转正机会？
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        是的，我们鼓励优秀的实习生转正。实习期间表现优秀的同学，在实习期满后会获得正式工作机会。我们每年有超过60%的实习生最终成为正式员工。
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3 border rounded">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq3">
+                                        公司的工作时间是怎样的？
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        我们实行弹性工作制，核心工作时间为10:00-16:00，员工可以自由安排上下班时间，每天工作满8小时即可。我们不鼓励加班，提倡高效工作。
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3 border rounded">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq4">
+                                        新员工入职后会有什么培训？
+                                    </button>
+                                </h2>
+                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        我们为新员工提供全面的入职培训计划，包括公司文化介绍、产品知识培训、专业技能提升等。每位新员工都会有一位导师，帮助快速适应工作环境。此外，我们还有定期的内部技术分享和外部培训机会。
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item mb-3 border rounded">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq5">
+                                        公司是否有远程工作的政策？
+                                    </button>
+                                </h2>
+                                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        我们采用混合办公模式，员工每周可以选择2天远程工作。对于部分特殊岗位，我们提供完全远程工作的机会。具体情况可以根据职位和团队需求进行协商。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img src="https://placehold.co/150x50" alt="公司Logo" class="mb-3" height="50">
+                    <p class="mb-3">我们是一家专注于企业数字化转型的科技公司，致力于为客户提供创新的解决方案和优质的服务。</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">首页</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">产品中心</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">解决方案</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">关于我们</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">加入我们</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">产品服务</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">企业级解决方案</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">中小企业套装</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">行业定制版</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">云服务</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">技术支持</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">培训服务</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">联系方式</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 北京市海淀区科技园路88号</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 400-888-8888</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> hr@company.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> 周一至周五: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="my-4 bg-secondary">
+
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">© 2023 公司名称. 保留所有权利.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="privacy.html" class="text-white-50 text-decoration-none">隐私政策</a>
+                        </li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="terms.html" class="text-white-50 text-decoration-none">使用条款</a>
+                        </li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="sitemap.html" class="text-white-50 text-decoration-none">网站地图</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 浮动组件 -->
+    <div class="floating-widget">
+        <div class="d-flex flex-column gap-3">
+            <button id="chatButton" class="btn btn-primary rounded-circle p-3" style="width: 56px; height: 56px;"
+                title="在线客服">
+                <i class="fas fa-headset"></i>
+            </button>
+            <button id="backToTopButton" class="btn btn-secondary rounded-circle p-3" style="width: 56px; height: 56px;"
+                title="返回顶部">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 返回顶部功能
+        document.getElementById('backToTopButton').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 滚动时显示/隐藏返回顶部按钮
+        window.addEventListener('scroll', function () {
+            const backToTopButton = document.getElementById('backToTopButton');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // 职位搜索和筛选功能
+        document.getElementById('jobSearch').addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            const jobCards = document.querySelectorAll('.job-card');
+
+            jobCards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const description = card.querySelector('.card-text').textContent.toLowerCase();
+
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        document.getElementById('jobFilter').addEventListener('change', function () {
+            const department = this.value;
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            if (department === '所有部门') {
+                tabPanes.forEach(pane => {
+                    const cards = pane.querySelectorAll('.job-card');
+                    cards.forEach(card => card.style.display = 'block');
+                });
+            } else {
+                tabPanes.forEach(pane => {
+                    const cards = pane.querySelectorAll('.job-card');
+                    cards.forEach(card => card.style.display = 'none');
+                });
+
+                const targetTab = document.querySelector(`#${department.toLowerCase().replace(' ', '-')}`);
+                if (targetTab) {
+                    const cards = targetTab.querySelectorAll('.job-card');
+                    cards.forEach(card => card.style.display = 'block');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

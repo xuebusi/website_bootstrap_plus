@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务条款 - 企业名称</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 继承主站样式并添加服务条款页面特有样式 */
+        .terms-section {
+            padding: 80px 0;
+        }
+        
+        .terms-content {
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            padding: 2.5rem;
+        }
+        
+        .terms-content h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: #0d6efd;
+        }
+        
+        .terms-content h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .terms-content h4 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .terms-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .terms-content ul, .terms-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .terms-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .terms-content .highlight {
+            background-color: rgba(13, 110, 253, 0.1);
+            padding: 1rem;
+            border-left: 4px solid #0d6efd;
+            margin: 1.5rem 0;
+        }
+        
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        .floating-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        #backToTopButton {
+            display: none;
+        }
+        
+        /* 添加一些动画效果 */
+        #chatWindow {
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        #chatWindow[style*="display: block"] {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .floating-widget .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            transition: all 0.2s ease;
+        }
+        
+        .floating-widget .btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 页眉通知条 -->
+    <div class="bg-primary text-white py-2">
+        <div class="container text-center">
+            <p class="mb-0">🎉 新用户注册即享8折优惠！ <a href="register.html" class="text-white fw-bold">立即注册</a></p>
+        </div>
+    </div>
+
+    <!-- 页面头部 -->
+    <header class="sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="https://placehold.co/150x50" alt="公司Logo" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.html">产品中心</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="solution.html">解决方案</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">关于我们</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cases.html">客户案例</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="news.html">新闻动态</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">联系我们</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex me-3">
+                            <input class="form-control me-2" type="search" placeholder="搜索..." aria-label="Search">
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        <div class="d-flex">
+                            <a href="login.html" class="btn btn-outline-primary me-2">登录</a>
+                            <a href="register.html" class="btn btn-primary">注册</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <nav aria-label="breadcrumb" class="bg-light py-3">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">首页</a></li>
+                <li class="breadcrumb-item active" aria-current="page">服务条款</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main>
+        <!-- 服务条款内容 -->
+        <section class="terms-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="text-center mb-5">
+                            <h1 class="fw-bold mb-3">服务条款</h1>
+                            <p class="lead text-muted">最后更新日期：2023年6月1日</p>
+                        </div>
+                        
+                        <div class="terms-content">
+                            <div class="highlight">
+                                <p><strong>重要提示：</strong>在使用我们的服务前，请仔细阅读本服务条款。通过访问或使用我们的网站和服务，即表示您同意受本条款约束。如果您不同意这些条款，请不要使用我们的服务。</p>
+                            </div>
+                            
+                            <h2>1. 服务概述</h2>
+                            <p>我们为企业客户提供数字化解决方案和服务，包括但不限于企业软件、云服务和技术支持（以下简称"服务"）。本条款适用于我们提供的所有服务。</p>
+                            
+                            <h2>2. 账户注册与使用</h2>
+                            
+                            <h3>2.1 注册要求</h3>
+                            <p>要使用我们的某些服务，您可能需要注册一个账户。您同意：</p>
+                            <ul>
+                                <li>提供真实、准确、最新和完整的注册信息</li>
+                                <li>及时更新注册信息以保持其真实、准确、最新和完整</li>
+                                <li>对账户活动负全部责任</li>
+                                <li>对账户密码和登录信息的保密负责</li>
+                                <li>立即通知我们任何未经授权使用账户的情况</li>
+                            </ul>
+                            
+                            <h3>2.2 用户资格</h3>
+                            <p>我们的服务仅面向18岁以上的个人或合法注册的企业实体。如果您代表企业注册，您声明并保证您有权代表该企业接受这些条款。</p>
+                            
+                            <h2>3. 服务使用限制</h2>
+                            <p>在使用我们的服务时，您同意不：</p>
+                            <ul>
+                                <li>以任何非法或欺诈目的使用服务</li>
+                                <li>干扰或破坏服务或与服务相关的任何服务器或网络</li>
+                                <li>未经授权访问任何部分的服务</li>
+                                <li>复制、修改、分发、出售或出租我们的服务或所含的任何软件</li>
+                                <li>反向工程或试图提取我们服务的源代码</li>
+                                <li>使用任何数据挖掘、机器人或类似的数据收集和提取工具</li>
+                                <li>发送垃圾邮件或其他未经请求的信息</li>
+                                <li>上传或传播病毒、恶意代码或其他破坏性技术</li>
+                            </ul>
+                            
+                            <h2>4. 知识产权</h2>
+                            <p>我们拥有并保留对我们服务及其所有相关知识产权（包括但不限于软件、图形、文本、内容和商标）的所有权利、所有权和利益。除非本条款明确允许，否则不得复制、修改、分发或以其他方式使用我们的知识产权。</p>
+                            
+                            <h2>5. 用户内容</h2>
+                            
+                            <h3>5.1 内容所有权</h3>
+                            <p>您保留您上传、提交、存储或通过我们服务传输的任何内容（"用户内容"）的所有权。通过提交用户内容，您授予我们全球性、免版税、可再许可的非独占许可，以使用、复制、修改、分发和公开展示用户内容，仅用于提供和改进我们的服务。</p>
+                            
+                            <h3>5.2 内容责任</h3>
+                            <p>您对您的内容及其合法性、可靠性和适当性负全部责任。我们不对任何用户内容负责，也不认可任何用户内容表达的观点。</p>
+                            
+                            <h2>6. 支付与费用</h2>
+                            
+                            <h3>6.1 费用</h3>
+                            <p>某些服务可能需要支付费用。您同意支付与您选择的服务相关的所有费用。除非另有说明，所有费用均以人民币计算。</p>
+                            
+                            <h3>6.2 付款方式</h3>
+                            <p>我们接受多种付款方式，包括信用卡、银行转账和其他电子支付方式。您授权我们通过您选择的付款方式收取费用。</p>
+                            
+                            <h3>6.3 税费</h3>
+                            <p>除非另有说明，费用不包括任何税费、征费或政府征收的其他费用。您负责支付所有适用的税费。</p>
+                            
+                            <h2>7. 服务变更与终止</h2>
+                            
+                            <h3>7.1 服务变更</h3>
+                            <p>我们保留随时修改或中断服务（或其任何部分）的权利，无论是否通知您。对于服务的任何修改、价格变更、暂停或终止，我们不对您或任何第三方负责。</p>
+                            
+                            <h3>7.2 终止</h3>
+                            <p>您可以通过停止使用服务并关闭账户来终止这些条款。我们可以在不通知的情况下，立即终止或暂停您对服务的访问，原因包括但不限于违反这些条款。</p>
+                            
+                            <h2>8. 免责声明</h2>
+                            <p>服务按"原样"和"现有"基础提供，不提供任何形式的明示或暗示保证。在法律允许的最大范围内，我们明确否认所有明示或暗示的保证，包括但不限于适销性、特定用途适用性和不侵权的保证。</p>
+                            
+                            <h2>9. 责任限制</h2>
+                            <p>在任何情况下，我们不对任何间接、附带、特殊、后果性或惩罚性损害负责，包括但不限于利润损失、数据损失、商誉损失或其他无形损失，无论是否已被告知此类损害的可能性。</p>
+                            
+                            <h2>10. 赔偿</h2>
+                            <p>您同意赔偿、辩护并使我们免受因您使用服务或违反这些条款而引起的或与之相关的任何索赔、责任、损害、损失和费用（包括合理的律师费）。</p>
+                            
+                            <h2>11. 第三方服务</h2>
+                            <p>我们的服务可能包含指向第三方网站或服务的链接。我们不对任何第三方内容、隐私政策或行为负责，也不认可这些内容。您使用任何第三方网站或服务需自行承担风险。</p>
+                            
+                            <h2>12. 条款修改</h2>
+                            <p>我们保留随时修改这些条款的权利。我们将通过在我们的网站上发布更新的条款来通知您任何更改。您继续使用服务即表示您接受修改后的条款。</p>
+                            
+                            <h2>13. 一般条款</h2>
+                            
+                            <h3>13.1 完整协议</h3>
+                            <p>这些条款构成您与我们之间关于服务的完整协议，并取代任何先前的协议。</p>
+                            
+                            <h3>13.2 可分割性</h3>
+                            <p>如果这些条款的任何条款被认定为无效或不可执行，其余条款仍保持完全效力。</p>
+                            
+                            <h3>13.3 不可抗力</h3>
+                            <p>对于因超出我们合理控制范围的事件（包括但不限于自然灾害、战争、恐怖主义行为、政府行为、互联网中断或电力故障）导致的任何未能履行或延迟履行，我们不承担责任。</p>
+                            
+                            <h3>13.4 管辖法律</h3>
+                            <p>这些条款受中华人民共和国法律管辖并据其解释。任何争议应提交至我们主要营业地有管辖权的人民法院诉讼解决。</p>
+                            
+                            <h2>14. 联系我们</h2>
+                            <p>如果您对这些服务条款有任何疑问，可以通过以下方式联系我们：</p>
+                            <ul>
+                                <li>电子邮件：legal@company.com</li>
+                                <li>电话：400-888-8888</li>
+                                <li>邮寄地址：北京市海淀区科技园路88号创新大厦15层 法务部</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img src="https://placehold.co/150x50" alt="公司Logo" class="mb-3" height="50">
+                    <p class="mb-3">我们是一家专注于企业数字化转型的科技公司，致力于为客户提供创新的解决方案和优质的服务。</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/" class="text-white-50 text-decoration-none">首页</a></li>
+                        <li class="mb-2"><a href="product.html" class="text-white-50 text-decoration-none">产品中心</a></li>
+                        <li class="mb-2"><a href="solution.html" class="text-white-50 text-decoration-none">解决方案</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">关于我们</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none">联系我们</a></li>
+                        <li class="mb-2"><a href="terms.html" class="text-white-50 text-decoration-none">服务条款</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">产品服务</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">企业级解决方案</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">中小企业套装</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">行业定制版</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">云服务</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">技术支持</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">培训服务</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">联系方式</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 北京市海淀区科技园路88号</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 400-888-8888</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@company.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> 周一至周五: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-secondary">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">© 2023 公司名称. 保留所有权利.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="privacy.html" class="text-white-50 text-decoration-none">隐私政策</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="terms.html" class="text-white-50 text-decoration-none">服务条款</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="sitemap.html" class="text-white-50 text-decoration-none">网站地图</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 浮动组件 -->
+    <div class="floating-widget">
+        <div class="d-flex flex-column gap-3">
+            <button id="chatButton" class="btn btn-primary rounded-circle p-3" style="width: 56px; height: 56px;" title="在线客服">
+                <i class="fas fa-headset"></i>
+            </button>
+            <button id="backToTopButton" class="btn btn-secondary rounded-circle p-3" style="width: 56px; height: 56px;" title="返回顶部">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 客服聊天窗口 (默认隐藏) -->
+    <div id="chatWindow" class="position-fixed bottom-0 end-0 mb-5 me-5 shadow-lg" style="width: 350px; display: none; right: 30px; bottom: 130px; z-index: 1050;">
+        <div class="card">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">在线客服</h5>
+                <button id="closeChat" class="btn btn-sm btn-light">
+                    <i class="fas fa-times"></i>
+            </button>
+            </div>
+            <div class="card-body" style="height: 300px; overflow-y: auto;">
+                <div class="alert alert-info">
+                    您好！请问有什么可以帮您？
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="输入您的问题...">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 返回顶部功能
+        document.getElementById('backToTopButton').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 客服聊天窗口功能
+        const chatButton = document.getElementById('chatButton');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+
+        chatButton.addEventListener('click', function() {
+            // 切换聊天窗口显示/隐藏
+            if (chatWindow.style.display === 'none') {
+                chatWindow.style.display = 'block';
+            } else {
+                chatWindow.style.display = 'none';
+            }
+        });
+
+        closeChat.addEventListener('click', function() {
+            chatWindow.style.display = 'none';
+        });
+
+        // 滚动时显示/隐藏返回顶部按钮
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('backToTopButton');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

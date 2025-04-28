@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站地图 - 企业名称</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 继承主站样式并添加网站地图特有样式 */
+        .sitemap-section {
+            padding: 80px 0;
+        }
+        
+        .sitemap-container {
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            padding: 2rem;
+        }
+        
+        .sitemap-category {
+            margin-bottom: 2.5rem;
+        }
+        
+        .sitemap-category h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: #0d6efd;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #0d6efd;
+        }
+        
+        .sitemap-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .sitemap-list li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .sitemap-list li:before {
+            content: "\f054";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #0d6efd;
+            font-size: 0.8rem;
+        }
+        
+        .sitemap-list a {
+            text-decoration: none;
+            color: #495057;
+            transition: all 0.2s;
+        }
+        
+        .sitemap-list a:hover {
+            color: #0d6efd;
+            padding-left: 0.3rem;
+        }
+        
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        .floating-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        #backToTopButton {
+            display: none;
+        }
+        
+        /* 添加一些动画效果 */
+        #chatWindow {
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        #chatWindow[style*="display: block"] {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .floating-widget .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            transition: all 0.2s ease;
+        }
+        
+        .floating-widget .btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 页眉通知条 -->
+    <div class="bg-primary text-white py-2">
+        <div class="container text-center">
+            <p class="mb-0">🎉 新用户注册即享8折优惠！ <a href="register.html" class="text-white fw-bold">立即注册</a></p>
+        </div>
+    </div>
+
+    <!-- 页面头部 -->
+    <header class="sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="https://placehold.co/150x50" alt="公司Logo" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.html">产品中心</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="solution.html">解决方案</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">关于我们</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cases.html">客户案例</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="news.html">新闻动态</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">联系我们</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex me-3">
+                            <input class="form-control me-2" type="search" placeholder="搜索..." aria-label="Search">
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        <div class="d-flex">
+                            <a href="login.html" class="btn btn-outline-primary me-2">登录</a>
+                            <a href="register.html" class="btn btn-primary">注册</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <nav aria-label="breadcrumb" class="bg-light py-3">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">首页</a></li>
+                <li class="breadcrumb-item active" aria-current="page">网站地图</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main>
+        <!-- 网站地图内容 -->
+        <section class="sitemap-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="text-center mb-5">
+                            <h1 class="fw-bold mb-3">网站地图</h1>
+                            <p class="lead text-muted">快速导航至网站所有页面</p>
+                        </div>
+                        
+                        <div class="sitemap-container">
+                            <!-- 主导航 -->
+                            <div class="sitemap-category">
+                                <h2><i class="fas fa-sitemap me-2"></i> 网站导航</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="/"><i class="fas fa-home me-2"></i> 首页</a></li>
+                                            <li><a href="product.html"><i class="fas fa-box-open me-2"></i> 产品中心</a></li>
+                                            <li><a href="solution.html"><i class="fas fa-lightbulb me-2"></i> 解决方案</a></li>
+                                            <li><a href="about.html"><i class="fas fa-building me-2"></i> 关于我们</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="cases.html"><i class="fas fa-users me-2"></i> 客户案例</a></li>
+                                            <li><a href="news.html"><i class="fas fa-newspaper me-2"></i> 新闻动态</a></li>
+                                            <li><a href="contact.html"><i class="fas fa-envelope me-2"></i> 联系我们</a></li>
+                                            <li><a href="career.html"><i class="fas fa-user-plus me-2"></i> 加入我们</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 产品中心 -->
+                            <div class="sitemap-category">
+                                <h2><i class="fas fa-boxes me-2"></i> 产品中心</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="product-enterprise.html">企业智能管理平台</a></li>
+                                            <li><a href="product-sme.html">中小企业标准套装</a></li>
+                                            <li><a href="product-retail.html">零售行业定制版</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="product-cloud.html">云端存储服务</a></li>
+                                            <li><a href="product-analytics.html">数据分析工具</a></li>
+                                            <li><a href="product-support.html">技术支持服务包</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 解决方案 -->
+                            <div class="sitemap-category">
+                                <h2><i class="fas fa-puzzle-piece me-2"></i> 解决方案</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="solution-finance.html">金融行业解决方案</a></li>
+                                            <li><a href="solution-manufacturing.html">制造业解决方案</a></li>
+                                            <li><a href="solution-retail.html">零售业解决方案</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="solution-healthcare.html">医疗健康解决方案</a></li>
+                                            <li><a href="solution-education.html">教育行业解决方案</a></li>
+                                            <li><a href="solution-logistics.html">物流行业解决方案</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 关于我们 -->
+                            <div class="sitemap-category">
+                                <h2><i class="fas fa-info-circle me-2"></i> 关于我们</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="about-company.html">公司简介</a></li>
+                                            <li><a href="about-culture.html">企业文化</a></li>
+                                            <li><a href="about-team.html">团队介绍</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="about-history.html">发展历程</a></li>
+                                            <li><a href="about-partners.html">合作伙伴</a></li>
+                                            <li><a href="about-certifications.html">资质认证</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 客户案例 -->
+                            <div class="sitemap-category">
+                                <h2><i class="fas fa-briefcase me-2"></i> 客户案例</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="case-bank.html">某大型银行数字化转型案例</a></li>
+                                            <li><a href="case-manufacturer.html">某制造企业智能工厂建设</a></li>
+                                            <li><a href="case-hospital.html">某三甲医院信息化升级</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="case-university.html">某高校智慧校园建设</a></li>
+                                            <li><a href="case-retailer.html">某连锁零售企业全渠道融合</a></li>
+                                            <li><a href="case-logistics.html">某物流企业供应链优化</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 新闻动态 -->
+                            <div class="sitemap-category">
+                                <h2><i class="fas fa-newspaper me-2"></i> 新闻动态</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="news-company.html">公司新闻</a></li>
+                                            <li><a href="news-industry.html">行业资讯</a></li>
+                                            <li><a href="news-product.html">产品更新</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="news-event.html">活动公告</a></li>
+                                            <li><a href="news-media.html">媒体报道</a></li>
+                                            <li><a href="news-blog.html">技术博客</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 支持与资源 -->
+                            <div class="sitemap-category">
+                                <h2><i class="fas fa-life-ring me-2"></i> 支持与资源</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="support-documentation.html">产品文档</a></li>
+                                            <li><a href="support-faq.html">常见问题</a></li>
+                                            <li><a href="support-download.html">下载中心</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="support-tutorial.html">视频教程</a></li>
+                                            <li><a href="support-forum.html">用户论坛</a></li>
+                                            <li><a href="support-contact.html">技术支持</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 法律条款 -->
+                            <div class="sitemap-category">
+                                <h2><i class="fas fa-gavel me-2"></i> 法律条款</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="terms.html">服务条款</a></li>
+                                            <li><a href="privacy.html">隐私政策</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="cookie.html">Cookie政策</a></li>
+                                            <li><a href="legal.html">法律声明</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 其他页面 -->
+                            <div class="sitemap-category">
+                                <h2><i class="fas fa-ellipsis-h me-2"></i> 其他页面</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="career.html">加入我们</a></li>
+                                            <li><a href="sitemap.html">网站地图</a></li>
+                                            <li><a href="feedback.html">意见反馈</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="sitemap-list">
+                                            <li><a href="login.html">用户登录</a></li>
+                                            <li><a href="register.html">用户注册</a></li>
+                                            <li><a href="404.html">404页面</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img src="https://placehold.co/150x50" alt="公司Logo" class="mb-3" height="50">
+                    <p class="mb-3">我们是一家专注于企业数字化转型的科技公司，致力于为客户提供创新的解决方案和优质的服务。</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/" class="text-white-50 text-decoration-none">首页</a></li>
+                        <li class="mb-2"><a href="product.html" class="text-white-50 text-decoration-none">产品中心</a></li>
+                        <li class="mb-2"><a href="solution.html" class="text-white-50 text-decoration-none">解决方案</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">关于我们</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none">联系我们</a></li>
+                        <li class="mb-2"><a href="sitemap.html" class="text-white-50 text-decoration-none">网站地图</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">产品服务</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">企业级解决方案</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">中小企业套装</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">行业定制版</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">云服务</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">技术支持</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">培训服务</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4">联系方式</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 北京市海淀区科技园路88号</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 400-888-8888</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@company.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> 周一至周五: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-secondary">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">© 2023 公司名称. 保留所有权利.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="privacy.html" class="text-white-50 text-decoration-none">隐私政策</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="terms.html" class="text-white-50 text-decoration-none">服务条款</a></li>
+                        <li class="list-inline-item"><span class="text-white-50">|</span></li>
+                        <li class="list-inline-item"><a href="sitemap.html" class="text-white-50 text-decoration-none">网站地图</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 浮动组件 -->
+    <div class="floating-widget">
+        <div class="d-flex flex-column gap-3">
+            <button id="chatButton" class="btn btn-primary rounded-circle p-3" style="width: 56px; height: 56px;" title="在线客服">
+                <i class="fas fa-headset"></i>
+            </button>
+            <button id="backToTopButton" class="btn btn-secondary rounded-circle p-3" style="width: 56px; height: 56px;" title="返回顶部">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 客服聊天窗口 (默认隐藏) -->
+    <div id="chatWindow" class="position-fixed bottom-0 end-0 mb-5 me-5 shadow-lg" style="width: 350px; display: none; right: 30px; bottom: 130px; z-index: 1050;">
+        <div class="card">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">在线客服</h5>
+                <button id="closeChat" class="btn btn-sm btn-light">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="card-body" style="height: 300px; overflow-y: auto;">
+                <div class="alert alert-info">
+                    您好！请问有什么可以帮您？
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="输入您的问题...">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 返回顶部功能
+        document.getElementById('backToTopButton').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 客服聊天窗口功能
+        const chatButton = document.getElementById('chatButton');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+
+        chatButton.addEventListener('click', function() {
+            // 切换聊天窗口显示/隐藏
+            if (chatWindow.style.display === 'none') {
+                chatWindow.style.display = 'block';
+            } else {
+                chatWindow.style.display = 'none';
+            }
+        });
+
+        closeChat.addEventListener('click', function() {
+            chatWindow.style.display = 'none';
+        });
+
+        // 滚动时显示/隐藏返回顶部按钮
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('backToTopButton');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
