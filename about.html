@@ -140,15 +140,35 @@
             margin-bottom: 10px;
         }
 
+        /* 合作伙伴网格布局 */
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .client-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
         .client-logo {
             height: 60px;
+            width: auto;
+            max-width: 100%;
             filter: grayscale(100%);
             transition: all 0.3s;
-            margin: 0 auto;
+            object-fit: contain;
         }
 
         .client-logo:hover {
             filter: grayscale(0%);
+            transform: scale(1.05);
         }
 
         /* 浮动组件样式 */
@@ -505,30 +525,30 @@
                 <h2 class="section-title center">合作伙伴</h2>
                 <p class="text-center mb-5">我们与行业领先企业建立战略合作关系</p>
 
-                <div class="row align-items-center">
-                    <div class="col-6 col-md-3 mb-4">
-                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="img-fluid client-logo">
+                <div class="client-grid">
+                    <div class="client-item">
+                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="client-logo">
                     </div>
-                    <div class="col-6 col-md-3 mb-4">
-                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="img-fluid client-logo">
+                    <div class="client-item">
+                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="client-logo">
                     </div>
-                    <div class="col-6 col-md-3 mb-4">
-                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="img-fluid client-logo">
+                    <div class="client-item">
+                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="client-logo">
                     </div>
-                    <div class="col-6 col-md-3 mb-4">
-                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="img-fluid client-logo">
+                    <div class="client-item">
+                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="client-logo">
                     </div>
-                    <div class="col-6 col-md-3 mb-4 mb-md-0">
-                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="img-fluid client-logo">
+                    <div class="client-item">
+                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="client-logo">
                     </div>
-                    <div class="col-6 col-md-3 mb-4 mb-md-0">
-                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="img-fluid client-logo">
+                    <div class="client-item">
+                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="client-logo">
                     </div>
-                    <div class="col-6 col-md-3">
-                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="img-fluid client-logo">
+                    <div class="client-item">
+                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="client-logo">
                     </div>
-                    <div class="col-6 col-md-3">
-                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="img-fluid client-logo">
+                    <div class="client-item">
+                        <img src="https://placehold.co/200x100" alt="合作伙伴" class="client-logo">
                     </div>
                 </div>
             </div>
