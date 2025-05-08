@@ -1,0 +1,36 @@
+# Node.js（如果你使用了 npm/yarn）
+node_modules/
+package-lock.json
+yarn.lock
+
+# VS Code 配置
+.vscode/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志文件
+*.log
+
+# 构建输出（可选：如你有构建脚本）
+dist/
+build/
+
+# 本地缓存或临时文件
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# 环境配置（如使用 dotenv）
+.env
+.env.local
+.env.*.local
+
+# 编译器或工具生成的文件
+*.map
+
+# macOS或Windows特有的元数据
+Icon?
+ehthumbs.db
